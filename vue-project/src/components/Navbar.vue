@@ -3,7 +3,7 @@
 import icon from './icons/icon.vue' 
 import shopping_cart from './icons/shopping_cart.vue' 
 import user from './icons/user.vue' 
-
+import hamburgerIcon from './icons/hamburger_icon.vue'
 </script>
 
 
@@ -30,7 +30,10 @@ import user from './icons/user.vue'
 
             
         </nav>
-
+        <div class="hamburger_box">
+         <hamburgerIcon/>
+        </div>
+        
     </header>
 
 
@@ -38,6 +41,7 @@ import user from './icons/user.vue'
 </template>
 
 <style>
+
  .icon_text{
     font-family: "Dela Gothic One";
     font-size: 24px;
@@ -56,7 +60,6 @@ import user from './icons/user.vue'
     /* position: absolute; */
     padding: 0px 40px;
     justify-content:space-between
-
 
  }
  ul{
@@ -84,7 +87,22 @@ import user from './icons/user.vue'
  .shopping_cart{
     margin-right: 36px;
  }
+ .hamburger_box{
+    display: flex;
+    align-items: center;
+    display: none;
+    cursor: pointer;
+ }
+ @media screen and (max-width: 800px) {
+   
+   nav{
+      display: none;
+   }
+   .hamburger_box{
+      display: flex;
+   }
 
+ }
 
  
 
