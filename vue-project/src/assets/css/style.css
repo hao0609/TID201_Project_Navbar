@@ -1,7 +1,80 @@
+@font-face {
+  font-family: "Dela Gothic One";
+  src: url("../../fonts/DelaGothicOne-Regular.ttf") format("truetype");
+  font-family: "NotoSansTC";
+  src: url("../../fonts/NotoSansTC-VariableFont_wght.ttf") format("truetype");
+}
 body {
   margin: 0;
   padding: 0;
   background-color: white;
+}
+
+ul {
+  list-style: none;
+  display: flex;
+}
+
+header {
+  display: flex;
+  width: 100%;
+  background-color: black;
+  height: 72px;
+  position: absolute;
+  padding: 0px 40px;
+  justify-content: space-between;
+}
+
+.icon {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+}
+
+.icon_text {
+  font-family: "Dela Gothic One";
+  font-size: 24px;
+  color: white;
+}
+
+nav {
+  display: flex;
+  align-items: center;
+}
+
+.menu {
+  font-family: "NotoSansTC";
+  font-size: 16px;
+  color: white;
+  padding: 0;
+  gap: 32px;
+}
+
+.shopping_cart {
+  margin-right: 36px;
+}
+
+.hamburger_box {
+  display: flex;
+  align-items: center;
+  display: none;
+  cursor: pointer;
+}
+
+.line {
+  width: 1px;
+  height: 21px;
+  background: white;
+  margin: 0 36px;
+}
+
+@media screen and (max-width: 800px) {
+  nav {
+    display: none;
+  }
+  .hamburger_box {
+    display: flex;
+  }
 }
 
 /*# sourceMappingURL=style.css.map */

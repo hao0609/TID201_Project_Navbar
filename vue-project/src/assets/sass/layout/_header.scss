@@ -1,0 +1,59 @@
+
+
+ header{
+    display: flex;
+    width: 100%;
+    background-color: black;
+    height: 72px;
+    position: absolute;
+    padding: 0px 40px;
+    justify-content:space-between
+
+ }
+
+
+ // ICON 
+
+.icon{
+
+   @include flex-center;
+   gap: 15px;
+}
+
+.icon_text{
+    @include font($font-dela, 24px, white);
+
+ }
+
+
+ //nav 
+
+nav{
+   @include flex-center;
+}
+.menu{
+   @include font($font-noto, 16px, white);
+   padding: 0;
+   gap: 32px;
+
+}
+.shopping_cart{
+   margin-right: 36px;
+}
+
+
+// hamburger
+
+.hamburger_box{
+   @include flex-center;
+   display: none;
+   cursor: pointer;
+}
+
+
+.line{
+   width: 1px;
+   height: 21px;
+   background: white;
+   margin: 0 36px;
+}
