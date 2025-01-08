@@ -145,6 +145,11 @@ nav {
   transition: all 0.4s ease;
 }
 
+.hamburger_check:checked .rwd_menu {
+  visibility: visible;
+  transition: all 0.4s ease;
+}
+
 .hamburger {
   width: 30px;
   height: 16px;

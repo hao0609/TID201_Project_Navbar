@@ -5,7 +5,6 @@ import shopping_cart from './icons/shopping_cart.vue'
 import user from './icons/user.vue' 
 import hamburger from './icons/hamburger.vue'
 
-
 </script>
 
 
@@ -33,47 +32,40 @@ import hamburger from './icons/hamburger.vue'
             
         </nav>
 
-         <hamburger/>
+
+        <hamburger/>
+
+        <!-- <div class="hamburger_box">
+            <input type="checkbox" class="hamburger_check" @change="checked">
+            <div class="hamburger">
+                <div></div>
+            </div>
+        </div> -->
 
 
-        
-
-        
     </header>
 
     <div class="rwd_menu">
-        <div class="rwd_menu_content">
-            <div class="tittle_box">
-        
-            <RouterLink to="/">景點介紹</RouterLink>
-            <RouterLink to="/">積分任務</RouterLink>
-            <RouterLink to="/">商城</RouterLink>
-            <RouterLink to="/">最新消息</RouterLink>
-            </div>
-            <div class="icon_box">
-
-                <shopping_cart/>
-                <user/>
+            <div class="rwd_menu_content">
+                <div class="tittle_box">
             
+                <RouterLink to="/">景點介紹</RouterLink>
+                <RouterLink to="/">積分任務</RouterLink>
+                <RouterLink to="/">商城</RouterLink>
+                <RouterLink to="/">最新消息</RouterLink>
+                </div>
+                <div class="icon_box">
+                    <shopping_cart/>
+                    <user/>               
+                </div>
             </div>
-
-
-        
-        </div>
-        <div class="bg_image">
+            <div class="bg_image">
                 <div class="blue_man"><img src="../assets/images/blue_man.png" alt=""></div>
-            <div class="yellow_man"><img src="../assets/images/yellow_man.png" alt=""></div>
-        
+                <div class="yellow_man"><img src="../assets/images/yellow_man.png" alt=""></div>
             </div>
-    
-    
     </div>
 
-
-
-
 </template>
-
 
 <style>
 .rwd_menu{
