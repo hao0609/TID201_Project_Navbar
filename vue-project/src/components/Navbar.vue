@@ -3,7 +3,7 @@
 import icon from './icons/icon.vue' 
 import shopping_cart from './icons/shopping_cart.vue' 
 import user from './icons/user.vue' 
-import hamburgerIcon from './icons/hamburger_icon.vue'
+import hamburger from './icons/hamburger.vue'
 </script>
 
 
@@ -30,13 +30,20 @@ import hamburgerIcon from './icons/hamburger_icon.vue'
 
             
         </nav>
-        <div class="hamburger_box">
-         <hamburgerIcon/>
-        </div>
+
+         <hamburger/>
         
     </header>
 
 
 
+
 </template>
+
+
+
+
+
+
+
 
