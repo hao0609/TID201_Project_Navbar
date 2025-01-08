@@ -36,6 +36,7 @@ nav{
    @include font($font-noto, 16px, white);
    padding: 0;
    gap: 32px;
+   display: flex;
 
 }
 

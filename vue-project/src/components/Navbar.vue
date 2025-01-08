@@ -4,8 +4,7 @@ import icon from './icons/icon.vue'
 import shopping_cart from './icons/shopping_cart.vue' 
 import user from './icons/user.vue' 
 import hamburger from './icons/hamburger.vue'
-import yellow_man from './icons/yellow_man.vue'
-import blue_man from './icons/blue_man.vue'
+
 
 </script>
 
@@ -58,13 +57,14 @@ import blue_man from './icons/blue_man.vue'
             
             </div>
 
-            <yellow_man/>
-            <blue_man/>
-        
-        
+
         
         </div>
-
+        <div class="bg_image">
+                <div class="blue_man"><img src="../assets/images/blue_man.png" alt=""></div>
+            <div class="yellow_man"><img src="../assets/images/yellow_man.png" alt=""></div>
+        
+            </div>
     
     
     </div>
@@ -82,19 +82,22 @@ import blue_man from './icons/blue_man.vue'
     width: 100%;
     height: 100vh;
     display: flex;
+    flex-direction: column;
+    justify-content: space-between;
 }
 .rwd_menu_content{
     width: 100%;
     display: flex;
-    height: 336px;
+
     flex-direction: row;
     justify-content: space-between;
     align-items: flex-start;
-    margin: 112px 40px 0px 40px;
+    margin-top: 112px;
+    padding: 0 30px;
 }
 
 .tittle_box{
-    height: 100%;
+    height: 336px;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
@@ -119,6 +122,38 @@ import blue_man from './icons/blue_man.vue'
     gap: 12px;
     border-radius: 20px;
     background: var(--primary-primary-400, #8C25C0);
+
+}
+.bg_image{
+    position: relative;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+}
+.blue_man{
+    display: block;
+    position: absolute;
+    right: 0px;
+    bottom: 0px;
+    z-index: 2;
+
+}
+.yellow_man{
+    display: block;
+    position: absolute;
+    right: 250px;
+    bottom: 5px;
+    z-index: 1;
+}
+
+.blue_man>img{
+    display: block;
+    width: 150%;
+
+}
+.yellow_man>img{
+    display: block;
+    width: 150%;
 
 }
 
