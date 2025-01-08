@@ -9,16 +9,10 @@
 
 </div>
 
-<div class="rwd_menu">123456
-</div>
 
 </template>
 
 
 
 
-<style>
-.rwd_menu{
-    background-color: blueviolet;
-}
-</style>
+

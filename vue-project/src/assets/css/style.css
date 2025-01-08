@@ -23,6 +23,7 @@ header {
   position: absolute;
   padding: 0px 40px;
   justify-content: space-between;
+  z-index: 99;
 }
 
 .icon {
