@@ -1,22 +1,7 @@
 @font-face {
     font-family: 'Dela Gothic One';
-    src: url('./assets/fonts/DelaGothicOne-Regular.ttf') format('truetype');
+    src: url('../../fonts/DelaGothicOne-Regular.ttf') format('truetype');
 
     font-family: 'NotoSansTC';
-    src: url('./assets/fonts/NotoSansTC-VariableFont_wght.ttf') format('truetype');
+    src: url('../../fonts/NotoSansTC-VariableFont_wght.ttf') format('truetype');
 }
-
-.icon_text{
-   @include font('Dela Gothic One', 24px, white);
- }
-
- .menu{
-    @include font('NotoSansTC',16px,white);
- }
-
-
-
-
-
-
-
