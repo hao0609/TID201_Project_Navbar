@@ -1,10 +1,10 @@
 
 @import 'mixin/mixin';
 @import 'base/font';
+@import 'base/var';
+@import 'base/global';
+@import 'layout/header';
+@import 'rwd/w_800.scss';
 
 
-body{
-    margin: 0;
-    padding: 0;
-    background-color: white;
-}
+
