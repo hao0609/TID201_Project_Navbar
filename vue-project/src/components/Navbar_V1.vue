@@ -26,6 +26,8 @@ const checked_change = () => {
         
 
     } else if (checked.value === false ) {
+        console.log("TEST");
+        
         rwd_menu.value.style.visibility = 'hidden';
         rwd_menu_bg.value.style.transform = 'scale(0)';
         rwd_menu.value.style.transform = 'scale(0)';
@@ -38,7 +40,6 @@ const checked_change = () => {
 
 <template>
     <header>
-        <!-- <icon_white :textFill="checked ? '#8C25C0' : 'white'" /> -->
         <icon_white/>
         <nav>
             <ul class="menu">
@@ -69,19 +70,8 @@ const checked_change = () => {
 
     </header>
 
-    <div class="rwd_menu" ref="rwd_menu">
-            <div class="rwd_menu_bg" ref="rwd_menu_bg"></div>
-            <header class="rwd_header">
-                <icon_purple/>
-                <div class="hamburger_box" >
-                <input type="checkbox" class="hamburger_check"  @change="checked_change" v-model="checked">
-                    <div class="hamburger rwd_hamburger">
-                        <div>
-                            
-                        </div>
-                    </div>
-                </div>
-            </header>
+    <div class="rwd_menu_V1" ref="rwd_menu">
+            <div class="rwd_menu_bg_V1" ref="rwd_menu_bg"></div>
             <div class="rwd_menu_content">
                 <div class="tittle_box">
             
@@ -104,7 +94,7 @@ const checked_change = () => {
 </template>
 
 <style>
-.rwd_menu{
+.rwd_menu_V1{
 
     position: absolute;
     width: 100%;
@@ -114,18 +104,16 @@ const checked_change = () => {
     justify-content: space-between;
     visibility: hidden;
     transition: all .4s ease;
-    /* transform-origin: right top; */
+    transform-origin: right top;
     transform: scale(0);
-    z-index: 100;
 }
-.rwd_menu_bg{
-    /* margin-top: 72px; */
+.rwd_menu_bg_V1{
+    margin-top: 72px;
     background-color: #e0c4ee;
     position: absolute;
     width: 100%;
-    /* height: calc(100vh - 72px); */
-    height:100vh;
-    /* transform-origin: right top; */
+    height: calc(100vh - 72px);
+    transform-origin: right top;
     transform: scale(0);
     transition: all .4s ease;
     /* border-radius: 10%; */
