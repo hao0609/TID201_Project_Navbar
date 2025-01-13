@@ -70,12 +70,6 @@ header {
   gap: 15px;
 }
 
-.icon_text {
-  font-family: "Dela Gothic One";
-  font-size: 24px;
-  color: white;
-}
-
 nav {
   display: flex;
   align-items: center;

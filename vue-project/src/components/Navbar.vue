@@ -1,6 +1,7 @@
 
 <script setup>
-import icon from './icons/icon.vue' 
+import icon_purple from './icons/icon_purple.vue' 
+import icon_white from './icons/icon_white.vue';
 import shopping_cart from './icons/shopping_cart.vue' 
 import user from './icons/user.vue' 
 // import hamburger from './icons/hamburger.vue'
@@ -10,20 +11,25 @@ import { ref } from 'vue';
 const checked = ref(false);
 const rwd_menu = ref(null);
 const rwd_menu_bg = ref(null);
+// const header = ref(null);
 
 const checked_change = () => {
 
     
-    if (checked.value === true && rwd_menu.value) {
+    if (checked.value === true ) {
 
         rwd_menu.value.style.visibility = 'visible';
         rwd_menu_bg.value.style.transform = 'scale(1)';
         rwd_menu.value.style.transform = 'scale(1)';
+        // header.value.style.backgroundColor = '#e0c4ee';
+
+        
 
     } else if (checked.value === false ) {
         rwd_menu.value.style.visibility = 'hidden';
         rwd_menu_bg.value.style.transform = 'scale(0)';
         rwd_menu.value.style.transform = 'scale(0)';
+        // header.value.style.backgroundColor = 'black';
     }
 };
 
@@ -32,12 +38,8 @@ const checked_change = () => {
 
 <template>
     <header>
-        <div class="icon">
-            <icon/>
-            <div class="icon_text">
-                METROGO
-            </div>      
-        </div>            
+        <!-- <icon_white :textFill="checked ? '#8C25C0' : 'white'" /> -->
+        <icon_white/>
         <nav>
             <ul class="menu">
                 <li><RouterLink to="/" >景點介紹</RouterLink></li>
@@ -61,15 +63,25 @@ const checked_change = () => {
                 <div>
                     
                 </div>
+            </div>
         </div>
-
-</div>
 
 
     </header>
 
     <div class="rwd_menu" ref="rwd_menu">
             <div class="rwd_menu_bg" ref="rwd_menu_bg"></div>
+            <header class="rwd_header">
+                <icon_purple/>
+                <div class="hamburger_box" >
+                <input type="checkbox" class="hamburger_check"  @change="checked_change" v-model="checked">
+                    <div class="hamburger rwd_hamburger">
+                        <div>
+                            
+                        </div>
+                    </div>
+                </div>
+            </header>
             <div class="rwd_menu_content">
                 <div class="tittle_box">
             
@@ -102,18 +114,20 @@ const checked_change = () => {
     justify-content: space-between;
     visibility: hidden;
     transition: all .4s ease;
-    transform-origin: right top;
+    /* transform-origin: right top; */
     transform: scale(0);
+    z-index: 100;
 }
 .rwd_menu_bg{
-    margin-top: 72px;
+    /* margin-top: 72px; */
     background-color: #e0c4ee;
     position: absolute;
     width: 100%;
-    height: calc(100vh - 72px);
-    transform-origin: right top;
+    /* height: calc(100vh - 72px); */
+    height:100vh;
+    /* transform-origin: right top; */
     transform: scale(0);
-    transition: all .5s ease;
+    transition: all .4s ease;
     /* border-radius: 10%; */
 }
 
@@ -188,7 +202,15 @@ const checked_change = () => {
     width: 100%;
 
 }
-
+.rwd_header{
+    background-color: transparent;
+}
+.rwd_hamburger >div{
+    background-color: #8C25C0;
+}
+.rwd_hamburger >div::after{
+    background-color: #8C25C0;
+}
 </style>
 
 
