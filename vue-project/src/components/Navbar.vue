@@ -9,6 +9,7 @@ import { ref } from 'vue';
 
 const checked = ref(false);
 const rwd_menu = ref(null);
+const rwd_menu_bg = ref(null);
 
 const checked_change = () => {
 
@@ -16,11 +17,12 @@ const checked_change = () => {
     if (checked.value === true && rwd_menu.value) {
 
         rwd_menu.value.style.visibility = 'visible';
+        rwd_menu_bg.value.style.transform = 'scale(1)';
         rwd_menu.value.style.transform = 'scale(1)';
 
     } else if (checked.value === false ) {
-        console.log("test");
         rwd_menu.value.style.visibility = 'hidden';
+        rwd_menu_bg.value.style.transform = 'scale(0)';
         rwd_menu.value.style.transform = 'scale(0)';
     }
 };
@@ -33,7 +35,7 @@ const checked_change = () => {
         <div class="icon">
             <icon/>
             <div class="icon_text">
-                METRO
+                METROGO
             </div>      
         </div>            
         <nav>
@@ -67,6 +69,7 @@ const checked_change = () => {
     </header>
 
     <div class="rwd_menu" ref="rwd_menu">
+            <div class="rwd_menu_bg" ref="rwd_menu_bg"></div>
             <div class="rwd_menu_content">
                 <div class="tittle_box">
             
@@ -90,7 +93,7 @@ const checked_change = () => {
 
 <style>
 .rwd_menu{
-    background-color: #e0c4ee;
+
     position: absolute;
     width: 100%;
     height: 100vh;
@@ -99,9 +102,21 @@ const checked_change = () => {
     justify-content: space-between;
     visibility: hidden;
     transition: all .4s ease;
-    border-radius: 10%;
+    transform-origin: right top;
     transform: scale(0);
 }
+.rwd_menu_bg{
+    margin-top: 72px;
+    background-color: #e0c4ee;
+    position: absolute;
+    width: 100%;
+    height: calc(100vh - 72px);
+    transform-origin: right top;
+    transform: scale(0);
+    transition: all .5s ease;
+    /* border-radius: 10%; */
+}
+
 .rwd_menu_content{
     width: 100%;
     display: flex;
@@ -110,7 +125,8 @@ const checked_change = () => {
     justify-content: space-between;
     align-items: flex-start;
     margin-top: 112px;
-    padding: 0 30px;
+    padding: 0 40px;
+    z-index: 2;
 }
 
 .tittle_box{
