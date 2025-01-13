@@ -125,7 +125,7 @@ const checked_change = () => {
     justify-content: space-between;
     align-items: flex-start;
     margin-top: 112px;
-    padding: 0 40px;
+    padding: 0 15px;
     z-index: 2;
 }
 
