@@ -1,5 +1,6 @@
 
 
+///////////* Header *//////////////
  header{
     display: flex;
     width: 100%;
@@ -13,7 +14,7 @@
  }
 
 
- // ICON 
+///////////* iCON *//////////////
 
 .icon{
 
@@ -22,9 +23,7 @@
 }
 
 
-
-
-//nav 
+///////////* nav *//////////////
 
 nav{
    @include flex-center;
@@ -33,11 +32,8 @@ nav{
    }
 }
 .menu{
-   @include font($font-noto, 16px, white);
-   padding: 0;
    gap: 32px;
    display: flex;
-
 }
 
 // nav 與 右方 ICON 間隔線
@@ -45,16 +41,22 @@ nav{
    width: 1px;
    height: 21px;
    background: white;
-   margin: 0 36px;
+   margin: 0 32px;
 }
 
 .shopping_cart{
-   margin-right: 36px;
+   margin-right: 32px;
 }
 
 
-// hamburger
 
+// 漢堡選單動畫間隔時間
+$all_animation_time: .4s;
+
+
+////////* hamburger *///////////
+
+ // 漢堡選單外部容器
 .hamburger_box{
    @include flex-center;
    display: none;
@@ -64,65 +66,16 @@ nav{
    }
 }
 
-// 隱藏 inputbox (用於點選切換用)
-.hamburger_check{
-   position: absolute;
-   top: 0;
-   left: 0;
-   z-index: 2;
-   cursor: pointer;
-   width: 100%;
-   height: 100%;
-   opacity: 0;
-}
-
- 
-// 當 checkbox 被點選時改變樣式
-
-// 讓 hamburger 切換回復時也有動畫
- .hamburger > div {
-   transition: all 0.4s ease;
- }
- 
- // checkbox 被點選時中間線的變化
- .hamburger_check:checked + .hamburger > div {
-   transform: rotate(135deg);
-   transition: all 0.4s ease;
- }
-  // checkbox 被點選時上線的變化
- .hamburger_check:checked + .hamburger > div:before {
-   top: 0;
-   transform: rotate(90deg);
-   transition: all 0.4s ease;
- }
-  // checkbox 被點選時下線的變化
- .hamburger_check:checked + .hamburger > div:after {
-   top: 0;
-   transform: rotate(90deg);
-   transition: all 0.4s ease;
- }
-
-
- .hamburger_check:checked  .rwd_menu {
-   visibility: visible;
-   transition: all 0.4s ease;
- }
-
-
-.hamburger{
+ // 漢堡選單
+ .hamburger{
    width: 30px;
    height: 16px;
    @include flex-center;
    justify-content: center;
 }
 
-
-
-
-
 // hamburger 中間線
 .hamburger > div{
-
    height: 3px;
    background-color: white;
    @include flex-center;
@@ -130,7 +83,6 @@ nav{
    width: 100%;
    border-radius: 10px;
    position: relative
-
 }
 
 // hamburger 上下線
@@ -151,3 +103,168 @@ nav{
    top: 10px
 }
 
+// 隱藏 inputbox (用於點選切換用)
+.hamburger_check{
+   position: absolute;
+   top: 0;
+   left: 0;
+   z-index: 2;
+   cursor: pointer;
+   width: 100%;
+   height: 100%;
+   opacity: 0;
+}
+ 
+// 當 checkbox 被點選時改變樣式
+
+// 讓 hamburger 切換回復時也有動畫
+ .hamburger > div {
+   transition: all $all_animation_time ease;
+ }
+ 
+ // checkbox 被點選時中間線的變化
+ .hamburger_check:checked + .hamburger > div {
+   transform: rotate(135deg);
+   transition: all $all_animation_time ease;
+ }
+ 
+  // checkbox 被點選時上線的變化
+ .hamburger_check:checked + .hamburger > div:before {
+   top: 0;
+   transform: rotate(90deg);
+   transition: all $all_animation_time ease;
+ }
+
+  // checkbox 被點選時下線的變化
+ .hamburger_check:checked + .hamburger > div:after {
+   top: 0;
+   transform: rotate(90deg);
+   transition: all $all_animation_time ease;
+ }
+
+
+
+////////* rwd_menu_V1 *///////////
+
+.rwd_menu_V1{
+   position: absolute;
+   width: 100%;
+   height: 100vh;
+   display: flex;
+   flex-direction: column;
+   justify-content: space-between;
+   visibility: hidden;
+   transition: all $all_animation_time ease;
+   transform-origin: right top;
+   transform: scale(0);
+}
+.rwd_menu_bg_V1{
+   margin-top: 72px;
+   background-color: $primary-200;
+   position: absolute;
+   width: 100%;
+   height: calc(100vh - 72px);
+   transform-origin: right top;
+   transform: scale(0);
+   transition: all $all_animation_time ease;
+}
+
+////////* rwd_menu_V3 *///////////
+
+.rwd_menu_V3{
+   position: absolute;
+   width: 100%;
+   height: 100vh;
+   display: flex;
+   flex-direction: column;
+   justify-content: space-between;
+   visibility: hidden;
+   transition: all .4s ease;
+   transform: scale(0);
+   z-index: 100;
+}
+.rwd_menu_bg_V3{
+   background-color: $primary-200;
+   position: absolute;
+   width: 100%;
+   height:100vh;
+   transform: scale(0);
+   transition: all .4s ease;
+}
+
+
+.rwd_menu_content{
+   width: 100%;
+   display: flex;
+   flex-direction: row;
+   justify-content: space-between;
+   align-items: flex-start;
+   margin-top: 112px;
+   padding: 0 40px;
+   z-index: 2;
+}
+
+.tittle_box{
+   height: 336px;
+   display: flex;
+   flex-direction: column;
+   justify-content: space-between;
+   color: $primary-950;
+   text-align: left;
+   font-feature-settings: 'liga' off, 'clig' off;
+}
+
+.icon_box{
+   display: flex;
+   padding: 5px 0px;
+   flex-direction: column;
+   justify-content: center;
+   align-items: flex-start;
+   gap: 12px;
+   border-radius: 20px;
+   background: $primary-400;
+}
+
+.bg_image{
+   position: relative;
+   width: 100%;
+   height: 100%;
+}
+
+.blue_man{
+   display: inline-block;
+   position: absolute;
+   right: 0;
+   bottom: 0;
+   z-index: 2;
+}
+
+.yellow_man{
+   display: inline-block;
+   position: absolute;
+   right: 150px;
+   bottom: 5px;
+   z-index: 1;
+}
+
+.blue_man>img{
+   display: inline-block;
+   width: 100%;
+}
+
+.yellow_man>img{
+   display: inline-block;
+   width: 100%;
+}
+
+.rwd_header{
+   background-color: transparent;
+}
+
+.rwd_hamburger >div{
+   background-color: $primary-400
+}
+
+.rwd_hamburger >div::after{
+   background-color: $primary-400
+}
