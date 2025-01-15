@@ -1,9 +1,24 @@
 
-@import 'mixin/mixin';
+@use "sass:map";
+
+// sass import
+@import 'base/reset';
+@import 'base/color';
 @import 'base/font';
-@import 'base/var';
+
+// component
+@import 'component/btn';
+
+// mixin
+@import 'mixin/mixin';
+
+//global
 @import 'base/global';
+
+// layout
 @import 'layout/header';
+
+// rwd
 @import 'rwd/w_800.scss';
 
 

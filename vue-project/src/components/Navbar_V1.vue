@@ -26,7 +26,6 @@ const checked_change = () => {
         
 
     } else if (checked.value === false ) {
-        console.log("TEST");
         
         rwd_menu.value.style.visibility = 'hidden';
         rwd_menu_bg.value.style.transform = 'scale(0)';
@@ -42,7 +41,7 @@ const checked_change = () => {
     <header>
         <icon_white/>
         <nav>
-            <ul class="menu">
+            <ul class="menu body bold txt-neutral-0">
                 <li><RouterLink to="/" >景點介紹</RouterLink></li>
                 <li><RouterLink to="/">積分任務</RouterLink></li>
                 <li><RouterLink to="/">商城</RouterLink></li>
@@ -73,12 +72,11 @@ const checked_change = () => {
     <div class="rwd_menu_V1" ref="rwd_menu">
             <div class="rwd_menu_bg_V1" ref="rwd_menu_bg"></div>
             <div class="rwd_menu_content">
-                <div class="tittle_box">
-            
-                <RouterLink to="/">景點介紹</RouterLink>
-                <RouterLink to="/">積分任務</RouterLink>
-                <RouterLink to="/">商城</RouterLink>
-                <RouterLink to="/">最新消息</RouterLink>
+                <div class="tittle_box ">
+                    <RouterLink to="/"><h2>景點介紹</h2></RouterLink>
+                    <RouterLink to="/"><h2>積分任務</h2></RouterLink>
+                    <RouterLink to="/"><h2>商城</h2></RouterLink>
+                    <RouterLink to="/"><h2>最新消息</h2></RouterLink>
                 </div>
                 <div class="icon_box">
                     <shopping_cart/>
@@ -93,113 +91,6 @@ const checked_change = () => {
 
 </template>
 
-<style>
-.rwd_menu_V1{
-
-    position: absolute;
-    width: 100%;
-    height: 100vh;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    visibility: hidden;
-    transition: all .4s ease;
-    transform-origin: right top;
-    transform: scale(0);
-}
-.rwd_menu_bg_V1{
-    margin-top: 72px;
-    background-color: #e0c4ee;
-    position: absolute;
-    width: 100%;
-    height: calc(100vh - 72px);
-    transform-origin: right top;
-    transform: scale(0);
-    transition: all .4s ease;
-    /* border-radius: 10%; */
-}
-
-.rwd_menu_content{
-    width: 100%;
-    display: flex;
-
-    flex-direction: row;
-    justify-content: space-between;
-    align-items: flex-start;
-    margin-top: 112px;
-    padding: 0 15px;
-    z-index: 2;
-}
-
-.tittle_box{
-    height: 336px;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    color: var(--Primary-Primary-950, #460961);
-    text-align: left;
-    font-feature-settings: 'liga' off, 'clig' off;
-
-    /* [Mobile]/H2 Regular(m) */
-    font-family: "Dela Gothic One";
-    font-size: 36px;
-    font-style: normal;
-    font-weight: 400;
-    line-height: 52px; 
-}
-
-.icon_box{
-    display: flex;
-    padding: 5px 0px;
-    flex-direction: column;
-    justify-content: center;
-    align-items: flex-start;
-    gap: 12px;
-    border-radius: 20px;
-    background: var(--primary-primary-400, #8C25C0);
-
-}
-.bg_image{
-    position: relative;
-    width: 100%;
-    height: 100%;
-
-}
-.blue_man{
-    display: block;
-    position: absolute;
-    right: 0;
-    bottom: 0;
-    z-index: 2;
-}
-.yellow_man {
-    display: block;
-    position: absolute;
-    right: 150px;
-    bottom: 5px;
-    z-index: 1;
-}
-
-.blue_man>img{
-    display: block;
-    width: 100%;
-
-}
-.yellow_man>img{
-    display: block;
-    width: 100%;
-
-}
-.rwd_header{
-    background-color: transparent;
-}
-.rwd_hamburger >div{
-    background-color: #8C25C0;
-}
-.rwd_hamburger >div::after{
-    background-color: #8C25C0;
-}
-</style>
 
 
 
