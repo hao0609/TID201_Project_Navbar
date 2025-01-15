@@ -3,13 +3,13 @@
  header{
     display: flex;
     width: 100%;
-    background-color: black;
+    background-color: $neutral-700;
     height: 72px;
     position: absolute;
-    padding: 0px 20px;
+    padding: 12px 40px;
     justify-content:space-between;
+    align-items: center;
     z-index:99;
-
  }
 
 
@@ -28,6 +28,9 @@
 
 nav{
    @include flex-center;
+   @include navbar_rwd(){
+      display: none;
+   }
 }
 .menu{
    @include font($font-noto, 16px, white);
@@ -56,6 +59,9 @@ nav{
    @include flex-center;
    display: none;
    position: relative;
+   @include navbar_rwd(){
+      display: flex;
+   }
 }
 
 // 隱藏 inputbox (用於點選切換用)
