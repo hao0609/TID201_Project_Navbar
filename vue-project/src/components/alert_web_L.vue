@@ -1,44 +1,72 @@
 <script setup>
 import { inject } from 'vue'                     // 透過 inject 取得 $swal 全局方法 
+
+      // 自定義修改內容
+      const props = defineProps({
+        alertInfo: {
+          type: Object,
+          required: true,
+          // 彈窗內容資料
+          default: () => ({
+            fristTitle: '',
+            svg_icon: ``, //無法確認 ICON 是否可以用外部引入.vue檔方式，目前先使用字串方式
+            SecondTittle: '',
+            ThirdTittle: '',
+            ButtonText: '',
+            allowOutsideClick: null,
+          }),
+        },
+      });
+
     const $swal = inject('$swal')
+
     const showAlert = () => {
       $swal.fire({
-        title: "<h2>尚未登入<h2>",
-        text: '您尚未登入',
-        html: `<div>
-                  <svg xmlns="http://www.w3.org/2000/svg" width="160" height="161" viewBox="0 0 160 161" fill="none">
-                    <circle cx="80" cy="80.5" r="72.5" stroke="#E3002C" stroke-width="15"/>
-                    <path d="M95.3106 88.4924C100.242 88.4927 104.984 90.4426 108.546 93.9355C112.108 97.4283 114.216 102.194 114.43 107.24L114.449 108.091V112.01C114.45 113.988 113.72 115.893 112.407 117.343C111.094 118.793 109.294 119.681 107.368 119.83L106.794 119.849H53.2053C51.2739 119.85 49.4137 119.103 47.9975 117.758C46.5813 116.413 45.7138 114.57 45.5689 112.598L45.5498 112.01V108.091C45.5501 103.04 47.4543 98.185 50.8652 94.5374C54.2762 90.8897 58.9307 88.7312 63.8579 88.512L64.6886 88.4924H95.3106ZM79.9996 41.457C85.0755 41.457 89.9435 43.5218 93.5327 47.1972C97.1219 50.8725 99.1383 55.8574 99.1383 61.0551C99.1383 66.2529 97.1219 71.2377 93.5327 74.9131C89.9435 78.5884 85.0755 80.6532 79.9996 80.6532C74.9236 80.6532 70.0556 78.5884 66.4664 74.9131C62.8772 71.2377 60.8608 66.2529 60.8608 61.0551C60.8608 55.8574 62.8772 50.8725 66.4664 47.1972C70.0556 43.5218 74.9236 41.457 79.9996 41.457Z" fill="#E3002C"/>
-                  </svg>
+        title: `<h2>${props.alertInfo.fristTitle}<h2>`,
+        html: `<div class="content">
+                  <div class="alert_icon">
+                      ${props.alertInfo.svg_icon}
+                  </div>
+                  <div class="title1 bold">
+                       ${props.alertInfo.SecondTittle}
+                  </div>
+                  <div class="title2 bold">
+                      ${props.alertInfo.ThirdTittle}
+                  </div>
+                  
               </div>`,
-        confirmButtonText: '前往登入',
+        confirmButtonText: `${props.alertInfo.ButtonText}`,
+        allowOutsideClick: props.alertInfo.allowOutsideClick,     //強迫用戶無法點選空白處關閉視窗，只能進行登入
         customClass: {
-        popup: 'my-swal'
+        popup: 'my-swal',
+        confirmButton: 'btn_filled'
       }
       });
     }
 </script>
+
 <template>
   <div>
-    <button @click="showAlert">顯示提示</button>
+    <button @click="showAlert" class="showAlert"><slot></slot></button>   
   </div>
 </template>
 
 
-
 <style>
-.my-swal .swal2-title {
-  order: 1; /* 將標題調整為第一個 */
-}
-.my-swal .swal2-icon {
-  order: 2; /* 將 ICON 調整為第二個 */
-}
-.my-swal .swal2-html-container {
-  order: 3; /* 將 文字 調整為第三個 */
-}
-.my-swal .swal2-actions {
-  order: 4; /* 將 按鈕 調整為第四個 */
+
+.showAlert{
+
+    font-family: 'Noto Sans TC', sans-serif;
+    font-size: 30px;
+    background-color: rgb(0, 0, 0);
+    color: rgb(255, 255, 255);
+    border-radius: 5%
+
 }
 
 
 </style>
+
+
+
+

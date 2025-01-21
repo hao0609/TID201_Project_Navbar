@@ -1,3 +1,4 @@
+@charset "UTF-8";
 /* http://meyerweb.com/eric/tools/css/reset/ 
    v2.0 | 20110126
    License: none (public domain)
@@ -300,6 +301,51 @@ p, .body {
   .btn_filled.small, .btn_white.small, .btn_outline.small {
     min-width: 80px;
   }
+}
+
+.my-swal {
+  display: flex;
+  align-items: center;
+  width: 480px;
+  gap: 24px;
+  padding: 40px 24px;
+  flex-direction: column;
+}
+
+.my-swal > .swal2-title {
+  order: 1; /* 將標題調整為第一個 */
+  font-size: unset;
+  padding: 0;
+  color: #232529;
+}
+
+.my-swal > .swal2-html-container > .content {
+  order: 2; /* 將 ICON 調整為第二個 */
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  gap: 24px;
+}
+
+.my-swal > .swal2-html-container > .content > .title1 {
+  color: #232529;
+}
+
+.my-swal > .swal2-html-container > .content > .title2 {
+  color: #495057;
+}
+
+.my-swal .swal2-html-container {
+  order: 3; /* 將 文字 調整為第三個 */
+  padding: 0;
+}
+
+.my-swal > .swal2-actions {
+  order: 4; /* 將 按鈕 調整為第四個 */
+}
+
+.my-swal > .swal2-actions {
+  margin: 0;
 }
 
 body {
