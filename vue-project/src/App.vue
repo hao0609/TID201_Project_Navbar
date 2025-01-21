@@ -39,11 +39,13 @@ import alert_web_L from './components/alert_web_L.vue'
     width: 100%;
     height: 100vh;
     display: flex;
-
+    flex-direction: column;
+    justify-content: space-evenly;
 }
 
 .box > .navbar{
     font-family: 'Dela Gothic One';
+    flex-wrap: wrap;
     font-size: 20px;
     display: flex;
     justify-content: space-around;
@@ -55,9 +57,11 @@ import alert_web_L from './components/alert_web_L.vue'
 .box > .alert{
     display: flex;
     justify-content: space-around;
+    flex-wrap: wrap;
     align-items: center;
     background-color: rgb(255, 255, 255);
     color: black;
+
 }
 </style>
 

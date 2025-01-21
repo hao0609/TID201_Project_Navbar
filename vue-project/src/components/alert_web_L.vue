@@ -60,7 +60,8 @@ import { inject } from 'vue'                     // 透過 inject 取得 $swal �
     font-size: 30px;
     background-color: rgb(0, 0, 0);
     color: rgb(255, 255, 255);
-    border-radius: 5%
+    border-radius: 5%;
+    margin: 10px;
 
 }
 
