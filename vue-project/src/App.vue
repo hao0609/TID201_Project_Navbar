@@ -3,18 +3,22 @@ import { RouterLink, RouterView } from 'vue-router'
 import Navbar_V1 from './components/Navbar_V1.vue'
 // import Navbar_V2 from './components/Navbar_V2.vue'
 import Navbar_V3 from './components/Navbar_V3.vue'
-
+import alert_web_L from './components/alert_web_L.vue';
 
 </script>
 
 
 <template>
-<RouterView/>
+<!-- <RouterView/> -->
     <div class="box">
-    <RouterLink to="/Navbar_V1">V1</RouterLink>
+    <!-- <RouterLink to="/Navbar_V1">V1</RouterLink>
     <RouterLink to="/Navbar_V2">V2(未完成)</RouterLink>
-    <RouterLink to="/Navbar_V3">V3</RouterLink>
+    <RouterLink to="/Navbar_V3">V3</RouterLink> -->
     <!-- <Navbar/> -->
+
+    <alert_web_L/>
+
+    
     
     </div>
 
@@ -34,3 +38,4 @@ import Navbar_V3 from './components/Navbar_V3.vue'
 
 }
 </style>
+
