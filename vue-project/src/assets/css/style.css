@@ -310,6 +310,7 @@ p, .body {
   gap: 24px;
   padding: 40px 24px;
   flex-direction: column;
+  border-radius: 20px;
 }
 
 .my-swal > .swal2-title {
@@ -366,7 +367,7 @@ header {
   padding: 12px 40px;
   justify-content: space-between;
   align-items: center;
-  z-index: 99;
+  z-index: 1062;
 }
 
 .icon {
@@ -491,6 +492,7 @@ nav {
   transition: all 0.4s ease;
   transform-origin: right top;
   transform: scale(0);
+  z-index: 1061;
 }
 
 .rwd_menu_bg_V1 {
@@ -514,7 +516,7 @@ nav {
   visibility: hidden;
   transition: all 0.4s ease;
   transform: scale(0);
-  z-index: 100;
+  z-index: 1063;
 }
 
 .rwd_menu_bg_V3 {

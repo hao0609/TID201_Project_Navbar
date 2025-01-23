@@ -10,7 +10,7 @@
     padding: 12px 40px;
     justify-content:space-between;
     align-items: center;
-    z-index:99;
+    z-index:1062;    
  }
 
 
@@ -157,6 +157,7 @@ $all_animation_time: .4s;
    transition: all $all_animation_time ease;
    transform-origin: right top;
    transform: scale(0);
+   z-index:1061;
 }
 .rwd_menu_bg_V1{
    margin-top: 72px;
@@ -181,7 +182,7 @@ $all_animation_time: .4s;
    visibility: hidden;
    transition: all .4s ease;
    transform: scale(0);
-   z-index: 100;
+   z-index:1063;
 }
 .rwd_menu_bg_V3{
    background-color: $primary-200;
