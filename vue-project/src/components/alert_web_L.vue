@@ -1,5 +1,5 @@
 <script setup>
-import { inject } from 'vue'                     // 透過 inject 取得 $swal 全局方法 
+  import Swal from 'sweetalert2';
 
       // 自定義修改內容
       const props = defineProps({
@@ -18,10 +18,8 @@ import { inject } from 'vue'                     // 透過 inject 取得 $swal �
         },
       });
 
-    const $swal = inject('$swal')
-
     const showAlert = () => {
-      $swal.fire({
+      Swal.fire({
         title: `<h2>${props.alertInfo.fristTitle}<h2>`,
         html: `<div class="content">
                   <div class="alert_icon">
@@ -43,30 +41,14 @@ import { inject } from 'vue'                     // 透過 inject 取得 $swal �
       }
       });
     }
+
+    defineExpose({                                                // 暴露 showAlert 方法給父組件使用
+      showAlert,
+    });
 </script>
 
-<template>
-  <div>
-    <button @click="showAlert" class="showAlert"><slot></slot></button>   
-  </div>
-</template>
 
 
-<style>
-
-.showAlert{
-
-    font-family: 'Noto Sans TC', sans-serif;
-    font-size: 30px;
-    background-color: rgb(0, 0, 0);
-    color: rgb(255, 255, 255);
-    border-radius: 5%;
-    margin: 10px;
-
-}
-
-
-</style>
 
 
 

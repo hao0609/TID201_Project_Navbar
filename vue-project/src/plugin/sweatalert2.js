@@ -5,3 +5,6 @@ export default {
     app.provide('$swal', Swal);               // 透過 provide 提供定義 $swal變數 為全域方法
   }
 };
+
+
+//其實應該可以不用這樣寫

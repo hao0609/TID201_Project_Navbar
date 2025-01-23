@@ -1,4 +1,5 @@
 <script setup>
+import { ref } from 'vue'
 import alert_web_L from '../components/alert_web_L.vue';
 
 const userAlertInfo = {
@@ -13,15 +14,24 @@ const userAlertInfo = {
     ThirdTittle: '若要遊玩積分遊戲，請先登入會員',
     ButtonText: '前往登入',
     allowOutsideClick: false,   //強迫用戶無法點選空白處關閉視窗，只能進行登入
- 
 }
+
+const alert_web_L_content = ref(null);
+const UserLoginShowAlert = () => {
+    alert_web_L_content.value.showAlert();
+}
+
+
+defineExpose({                                                // 暴露 UserLoginShowAlert 方法給父組件使用
+    UserLoginShowAlert,
+});
 
 </script>
 
 
 <template>
-  <div>
-    <alert_web_L :alertInfo="userAlertInfo">用戶登入提醒</alert_web_L>
-  </div>
+    <alert_web_L ref="alert_web_L_content" :alertInfo="userAlertInfo"/>
 </template>
+
+
 

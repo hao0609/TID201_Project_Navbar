@@ -1,11 +1,49 @@
 <script setup>
 import { RouterLink, RouterView } from 'vue-router'
+import { ref , onMounted} from 'vue'
 import Navbar_V1 from './components/Navbar_V1.vue'
 // import Navbar_V2 from './components/Navbar_V2.vue'
 import Navbar_V3 from './components/Navbar_V3.vue'
 import alert_user_login from './alert/alert_user_login.vue'
 import alert_user_location from './alert/alert_user_location.vue'
-import alert_web_L from './components/alert_web_L.vue'
+
+
+
+
+const user_login_status = ref(false);         //模擬用戶登入判斷狀態
+
+const time = ref(3);
+
+// 子組件的實例參考
+const alert_web_L_userlogin = ref(null);
+const alert_web_L_userlocation = ref(null);
+
+const UserLocationShowAlert = () => {
+    alert_web_L_userlocation.value.UserLocationShowAlert();  
+}
+
+const UserLoginShowAlert = () => {
+    alert_web_L_userlogin.value.UserLoginShowAlert();
+}
+
+onMounted(() => {
+    setTimeout(() => {
+        if (user_login_status.value === false) {
+            UserLoginShowAlert();               //alert_web_L_content_user.value 就是等於 alert_web_L 組件內容
+        }
+    }, 3000);                                                         //等待 3 秒再判斷是否登入
+
+
+    setInterval(() => {
+        if (time.value >= 1 ) {
+            time.value -= 1;
+        }
+    },1000)
+
+});
+
+
+
 </script>
 
 
@@ -22,12 +60,19 @@ import alert_web_L from './components/alert_web_L.vue'
 
         </div>
 
+        <div class="time title2 bold">
+           判斷用戶未登入時間: {{time}}
+        </div>
+
         <!-- <alert_windows/> -->
 
-        <div class="alert">
-            <alert_user_login/>
+        <alert_user_login ref="alert_web_L_userlogin"/>
+        <alert_user_location ref="alert_web_L_userlocation"/>
 
-            <alert_user_location/>
+         <div class="alert">
+            <button @click="UserLoginShowAlert" class="showAlert">用戶登入提醒</button> 
+
+            <button @click="UserLocationShowAlert" class="showAlert">用戶定位提醒</button> 
         </div>
     
     </div>
@@ -50,7 +95,6 @@ import alert_web_L from './components/alert_web_L.vue'
     display: flex;
     justify-content: space-around;
     align-items: center;
-    background-color: rgb(255, 255, 255);
     color: black;
 }
 
@@ -59,8 +103,21 @@ import alert_web_L from './components/alert_web_L.vue'
     justify-content: space-around;
     flex-wrap: wrap;
     align-items: center;
-    background-color: rgb(255, 255, 255);
     color: black;
+
+}
+.time{
+text-align: center;
+}
+.showAlert{
+
+font-family: 'Noto Sans TC', sans-serif;
+font-size: 25px;
+background-color: rgb(0, 0, 0);
+color: rgb(255, 255, 255);
+border-radius: 5%;
+margin: 10px;
+cursor: pointer;
 
 }
 </style>
