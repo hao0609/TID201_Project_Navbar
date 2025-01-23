@@ -1,6 +1,6 @@
 <script setup>
 import { ref } from 'vue'
-import alert_web_L from '../components/alert_web_L.vue';
+import alert_web_L from '../components/alert_web_M.vue';
 
 const userAlertInfo = {
     fristTitle: '尚未登入',
