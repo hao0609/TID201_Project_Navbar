@@ -36,7 +36,7 @@
         confirmButtonText: `${props.alertInfo.ButtonText}`,
         allowOutsideClick: props.alertInfo.allowOutsideClick,     //強迫用戶無法點選空白處關閉視窗，只能進行登入
         customClass: {
-        popup: 'my-swal',
+        popup: 'my-swal-M',
         confirmButton: 'btn_filled'
       }
       });

@@ -1,6 +1,6 @@
 <script setup>
 import { ref } from 'vue'
-import alert_web_L from '../components/alert_web_M.vue';
+import alert_web_M from '../components/alert_web_M.vue';
 
 const locationAlertInfo = {
     fristTitle: '打開定位',
@@ -17,9 +17,9 @@ const locationAlertInfo = {
     allowOutsideClick: true,  
 }
 
-const alert_web_L_content = ref(null);
+const alert_web_M_content = ref(null);
 const UserLocationShowAlert = () => {
-    alert_web_L_content.value.showAlert();
+    alert_web_M_content.value.showAlert();
 }
 
 defineExpose({                                                // 暴露 UserLocationShowAlert 方法給父組件使用
@@ -29,6 +29,6 @@ defineExpose({                                                // 暴露 UserLoca
 
 
 <template>
-    <alert_web_L ref="alert_web_L_content" :alertInfo="locationAlertInfo"/>
+    <alert_web_M ref="alert_web_M_content" :alertInfo="locationAlertInfo"/>
 </template>
 

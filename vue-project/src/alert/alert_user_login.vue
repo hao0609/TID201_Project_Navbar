@@ -1,6 +1,6 @@
 <script setup>
 import { ref } from 'vue'
-import alert_web_L from '../components/alert_web_M.vue';
+import alert_web_M from '../components/alert_web_M.vue';
 
 const userAlertInfo = {
     fristTitle: '尚未登入',
@@ -16,9 +16,9 @@ const userAlertInfo = {
     allowOutsideClick: false,   //強迫用戶無法點選空白處關閉視窗，只能進行登入
 }
 
-const alert_web_L_content = ref(null);
+const alert_web_M_content = ref(null);
 const UserLoginShowAlert = () => {
-    alert_web_L_content.value.showAlert();
+    alert_web_M_content.value.showAlert();
 }
 
 
@@ -30,7 +30,7 @@ defineExpose({                                                // 暴露 UserLogi
 
 
 <template>
-    <alert_web_L ref="alert_web_L_content" :alertInfo="userAlertInfo"/>
+    <alert_web_M ref="alert_web_M_content" :alertInfo="userAlertInfo"/>
 </template>
 
 

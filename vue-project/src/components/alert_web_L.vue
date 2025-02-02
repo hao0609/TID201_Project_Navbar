@@ -48,35 +48,6 @@
     });
 </script>
 
-<template>
-    <div>
-        <button @click="showAlert" class="showAlert">用戶登入提醒</button> 
-    </div>
-</template>
-
-
-<style>
-.image{
-    width: 335px;
-    height: 273px;
-    border-radius: 12px;
-    background:  #CCD1D5;
-}
-.row_box{
-    display: flex;
-    justify-content: space-around;
-}
-.my-swal-L{
-    width: 1138px;
-}
-.text_box{
-    width: 715px;
-    text-align: left;
-}
-</style>
-
-
-
 
 
 

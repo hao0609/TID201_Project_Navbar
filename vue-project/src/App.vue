@@ -17,7 +17,7 @@ const time = ref(3);
 // 子組件的實例參考
 const alert_web_M_userlogin = ref(null);
 const alert_web_M_userlocation = ref(null);
-// const alert_web_L = ref(null);
+const alert_web_L_content = ref(null);
 
 const UserLocationShowAlert = () => {
     alert_web_M_userlocation.value.UserLocationShowAlert();  
@@ -25,6 +25,10 @@ const UserLocationShowAlert = () => {
 
 const UserLoginShowAlert = () => {
     alert_web_M_userlogin.value.UserLoginShowAlert();
+}
+
+const Web_L_ShowAlert = () => {
+    alert_web_L_content.value.showAlert();
 }
 
 // onMounted(() => {
@@ -69,15 +73,15 @@ const UserLoginShowAlert = () => {
 
         <alert_user_login ref="alert_web_M_userlogin"/>
         <alert_user_location ref="alert_web_M_userlocation"/>
-        <alert_web_L/>
+        <alert_web_L ref="alert_web_L_content"/>
 
-         <!-- <div class="alert">
-            <button @click="UserLoginShowAlert" class="showAlert">用戶登入提醒</button> 
+         <div class="alert">
+            <button @click="Web_L_ShowAlert" class="showAlert">alert_web_L</button> 
 
-            <button @click="UserLocationShowAlert" class="showAlert">用戶定位提醒</button> 
+            <button @click="UserLocationShowAlert" class="showAlert">alert_web_M</button> 
 
 
-        </div> -->
+        </div>
     
     </div>
 

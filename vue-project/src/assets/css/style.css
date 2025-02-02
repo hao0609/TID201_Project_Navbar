@@ -303,7 +303,7 @@ p, .body {
   }
 }
 
-.my-swal {
+.my-swal-M {
   display: flex;
   align-items: center;
   width: 480px;
@@ -313,14 +313,14 @@ p, .body {
   border-radius: 20px;
 }
 
-.my-swal > .swal2-title {
+.my-swal-M > .swal2-title {
   order: 1; /* 將標題調整為第一個 */
   font-size: unset;
   padding: 0;
   color: #232529;
 }
 
-.my-swal > .swal2-html-container > .content {
+.my-swal-M > .swal2-html-container > .content {
   order: 2; /* 將 ICON 調整為第二個 */
   display: flex;
   align-items: center;
@@ -328,25 +328,92 @@ p, .body {
   gap: 24px;
 }
 
-.my-swal > .swal2-html-container > .content > .title1 {
+.my-swal-M > .swal2-html-container > .content > .title1 {
   color: #232529;
 }
 
-.my-swal > .swal2-html-container > .content > .title2 {
+.my-swal-M > .swal2-html-container > .content > .title2 {
   color: #495057;
 }
 
-.my-swal .swal2-html-container {
+.my-swal-M .swal2-html-container {
   order: 3; /* 將 文字 調整為第三個 */
   padding: 0;
 }
 
-.my-swal > .swal2-actions {
+.my-swal-M > .swal2-actions {
   order: 4; /* 將 按鈕 調整為第四個 */
 }
 
-.my-swal > .swal2-actions {
+.my-swal-M > .swal2-actions {
   margin: 0;
+}
+
+.swal2-container {
+  background: rgba(35, 37, 41, 0.5) !important;
+}
+
+.my-swal-L {
+  display: flex;
+  align-items: center;
+  width: 1138px;
+  padding: 40px 24px;
+  gap: 40px;
+  flex-direction: column;
+  border-radius: 20px;
+}
+
+.my-swal-L > .swal2-title {
+  order: 1; /* 將標題調整為第一個 */
+  font-size: unset;
+  padding: 0;
+  color: #232529;
+}
+
+.my-swal-L > .swal2-html-container > .content {
+  order: 2; /* 將 ICON 調整為第二個 */
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  gap: 24px;
+}
+
+.my-swal-L > .swal2-html-container > .content > .title1 {
+  color: #232529;
+}
+
+.my-swal-L > .swal2-html-container > .content > .title2 {
+  color: #495057;
+}
+
+.my-swal-L .swal2-html-container {
+  order: 3; /* 將 文字 調整為第三個 */
+  padding: 0;
+}
+
+.my-swal-L > .swal2-actions {
+  order: 4; /* 將 按鈕 調整為第四個 */
+}
+
+.my-swal-L > .swal2-actions {
+  margin: 0;
+}
+
+.image {
+  width: 335px;
+  height: 273px;
+  border-radius: 12px;
+  background: #CCD1D5;
+}
+
+.row_box {
+  display: flex;
+  justify-content: space-around;
+}
+
+.text_box {
+  width: 715px;
+  text-align: left;
 }
 
 body {
