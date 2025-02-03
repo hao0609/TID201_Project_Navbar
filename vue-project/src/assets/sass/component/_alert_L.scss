@@ -12,6 +12,10 @@
     gap: 40px;    
     flex-direction: column;
     border-radius: 20px;
+    @include mobile(){
+      padding: 15px 24px; ;
+      gap: 20px;
+    }
   }
   .my-swal-L > .swal2-title {
     order: 1; /* 將標題調整為第一個 */
@@ -22,15 +26,31 @@
   .my-swal-L > .swal2-html-container > .content {
     @include flex-center;
     flex-direction: column;
-    gap: 24px;
+    gap: 40px;
+    max-height: 458px;
+    max-width: 1090px;
+    
   }
 
+  //自定義 scrollbar
+  
+  .my-swal-L > .swal2-html-container::-webkit-scrollbar{
+    width: 10px;
+  }
+
+  .my-swal-L > .swal2-html-container::-webkit-scrollbar-thumb{
+    background: $neutral-400; 
+    border-radius: 100px;
+  }
 
   .my-swal-L > .swal2-html-container > .content > .row_box {
     display: flex;
-    justify-content: space-around;
-    flex-wrap: wrap;
+    justify-content: space-between;
     width: 100%;
+    @media screen and (max-width: 1145px) {
+      align-items: center;
+      flex-direction: column;
+    }
   }
 
   .my-swal-L > .swal2-html-container > .content > .row_box > .image{
@@ -46,6 +66,13 @@
     display: flex;
     flex-direction: column;
     justify-content: space-between;
+    >.title2{
+      color: $neutral-700;
+    }
+    @media screen and (max-width: 1145px) {
+      margin: 40px 0;
+      width: 100%;
+    }
   } 
   .my-swal-L .swal2-html-container {
     order: 2; /* 將 中間內容 調整為第二個 */
@@ -58,12 +85,15 @@
     display: flex;
 
   }
-  .my-swal-L > .swal2-actions > .swal2-confirm{
-    order: 2;
+  .my-swal-L > .swal2-actions > .swal2-confirm{    
+    order: 2; /* 將 關閉按鈕 調整為第一個 */
   }
   .my-swal-L > .swal2-actions > .swal2-cancel{
-    order: 1
+    order: 1; /* 將 另個按鈕 調整為第二個 */
   }
+
+
+
 
 
   

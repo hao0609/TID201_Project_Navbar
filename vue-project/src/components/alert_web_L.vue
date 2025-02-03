@@ -29,6 +29,13 @@
                         <div class="body">You can chat freely after a privacy my chatroom by chatting dataYou can chat freely after a privacy my chatroom by chatting dataYou can chat freely after a privacy my chatroom by chatting dataYou can chat freely after a privacy my chatroom by chatting dataYou can chat freely after a privacy my chatroom by chatting dataYou can chat freely after a privacy my chatroom by chatting dataYou can chat freely after a privacy my chatroom by chatting dataYou can chat freely after a privacy my chatroom by chatting dataYou can chat freely after a privacy my chatroom by chatting dataYou can chat freely after a privacy my chatroom by chatting dataYou can chat freely after a privacy my chatroom by chatting dataYou can chat freely after a privacy my chatroom by chatting data</div>
                     </div>
                 </div>
+                <div class="row_box">
+                    <div class="image"></div>
+                    <div class="text_box">
+                        <div class="title2 bold">Title2 (Optional)</div>
+                        <div class="body">You can chat freely after a privacy my chatroom by chatting dataYou can chat freely after a privacy my chatroom by chatting dataYou can chat freely after a privacy my chatroom by chatting dataYou can chat freely after a privacy my chatroom by chatting dataYou can chat freely after a privacy my chatroom by chatting dataYou can chat freely after a privacy my chatroom by chatting dataYou can chat freely after a privacy my chatroom by chatting dataYou can chat freely after a privacy my chatroom by chatting dataYou can chat freely after a privacy my chatroom by chatting dataYou can chat freely after a privacy my chatroom by chatting dataYou can chat freely after a privacy my chatroom by chatting dataYou can chat freely after a privacy my chatroom by chatting data</div>
+                    </div>
+                </div>
               </div>`,
 
         showCancelButton: true,
