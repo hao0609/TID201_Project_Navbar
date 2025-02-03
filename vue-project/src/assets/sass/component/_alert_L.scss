@@ -58,6 +58,9 @@
     height: 273px;
     border-radius: 12px;
     background:  #CCD1D5;
+    @include mobile(){
+      width: 100%;
+    }
   } 
 
   .my-swal-L > .swal2-html-container > .content > .row_box > .text_box{

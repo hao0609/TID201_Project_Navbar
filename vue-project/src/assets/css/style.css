@@ -412,6 +412,11 @@ p, .body {
   border-radius: 12px;
   background: #CCD1D5;
 }
+@media screen and (max-width: 576px) {
+  .my-swal-L > .swal2-html-container > .content > .row_box > .image {
+    width: 100%;
+  }
+}
 
 .my-swal-L > .swal2-html-container > .content > .row_box > .text_box {
   width: 715px;
