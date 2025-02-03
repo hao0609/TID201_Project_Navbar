@@ -343,6 +343,7 @@ p, .body {
 
 .my-swal-M > .swal2-actions {
   order: 4; /* 將 按鈕 調整為第四個 */
+  margin: 0;
 }
 
 .my-swal-M > .swal2-actions {
@@ -356,15 +357,15 @@ p, .body {
 .my-swal-L {
   display: flex;
   align-items: center;
-  width: 1138px;
-  padding: 40px 24px;
-  gap: 40px;
+  width: 71.125rem;
+  padding: 2.5rem 1.5rem;
+  gap: 2.5rem;
   flex-direction: column;
   border-radius: 20px;
 }
 @media screen and (max-width: 576px) {
   .my-swal-L {
-    padding: 15px 24px;
+    padding: 15px 1.5rem;
     gap: 20px;
   }
 }
@@ -380,8 +381,8 @@ p, .body {
   display: flex;
   align-items: center;
   flex-direction: column;
-  gap: 40px;
-  max-height: 458px;
+  gap: 2.5rem;
+  max-height: 350px;
   max-width: 1090px;
 }
 
@@ -425,13 +426,29 @@ p, .body {
   flex-direction: column;
   justify-content: space-between;
 }
+@media screen and (max-width: 1145px) {
+  .my-swal-L > .swal2-html-container > .content > .row_box > .text_box {
+    margin: 2.5rem 0;
+    width: 100%;
+    text-align: center;
+  }
+}
+
 .my-swal-L > .swal2-html-container > .content > .row_box > .text_box > .title2 {
   color: #232529;
 }
 @media screen and (max-width: 1145px) {
-  .my-swal-L > .swal2-html-container > .content > .row_box > .text_box {
-    margin: 40px 0;
-    width: 100%;
+  .my-swal-L > .swal2-html-container > .content > .row_box > .text_box > .title2 {
+    margin: 10px 0;
+  }
+}
+
+.my-swal-L > .swal2-html-container > .content > .row_box > .text_box > .body {
+  min-height: 216px;
+}
+@media screen and (max-width: 1145px) {
+  .my-swal-L > .swal2-html-container > .content > .row_box > .text_box > .body {
+    min-height: 0;
   }
 }
 
@@ -444,14 +461,17 @@ p, .body {
   order: 3; /* 將 按鈕外部容器 調整為第三個 */
   margin: 0;
   display: flex;
+  gap: 8px;
 }
 
 .my-swal-L > .swal2-actions > .swal2-confirm {
   order: 2; /* 將 關閉按鈕 調整為第一個 */
+  margin: 0;
 }
 
 .my-swal-L > .swal2-actions > .swal2-cancel {
   order: 1; /* 將 另個按鈕 調整為第二個 */
+  margin: 0;
 }
 
 body {
