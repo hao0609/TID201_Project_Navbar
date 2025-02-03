@@ -20,42 +20,50 @@
     color: $neutral-700;
   }
   .my-swal-L > .swal2-html-container > .content {
-    order: 2; /* 將 ICON 調整為第二個 */
     @include flex-center;
     flex-direction: column;
     gap: 24px;
   }
-  .my-swal-L >.swal2-html-container > .content > .title1{
-    color: $neutral-700;
-  }
-  .my-swal-L > .swal2-html-container >.content > .title2{
-    color: $neutral-400;
-  }
-  .my-swal-L .swal2-html-container {
-    order: 3; /* 將 文字 調整為第三個 */
-    padding: 0;
-  }
-  .my-swal-L >.swal2-actions {
-    order: 4; /* 將 按鈕 調整為第四個 */
-  }
-  .my-swal-L > .swal2-actions{
-    margin: 0;
+
+
+  .my-swal-L > .swal2-html-container > .content > .row_box {
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+    width: 100%;
   }
 
-  .image{
+  .my-swal-L > .swal2-html-container > .content > .row_box > .image{
     width: 335px;
     height: 273px;
     border-radius: 12px;
     background:  #CCD1D5;
-}
-.row_box{
+  } 
+
+  .my-swal-L > .swal2-html-container > .content > .row_box > .text_box{
+    width: 715px;
+    text-align: left;
     display: flex;
-    justify-content: space-around;
-}
-.text_box{
-  width: 715px;
-  text-align: left;
-}
+    flex-direction: column;
+    justify-content: space-between;
+  } 
+  .my-swal-L .swal2-html-container {
+    order: 2; /* 將 中間內容 調整為第二個 */
+    padding: 0;
+  }
+
+  .my-swal-L >.swal2-actions {
+    order: 3; /* 將 按鈕外部容器 調整為第三個 */
+    margin: 0;
+    display: flex;
+
+  }
+  .my-swal-L > .swal2-actions > .swal2-confirm{
+    order: 2;
+  }
+  .my-swal-L > .swal2-actions > .swal2-cancel{
+    order: 1
+  }
 
 
   
