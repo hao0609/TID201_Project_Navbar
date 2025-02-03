@@ -1,41 +1,33 @@
 <script setup>
   import Swal from 'sweetalert2';
+  import alert_web_L_row from './alert_web_L_row.vue'
+  import { h } from "vue";   // h 是 Vue 組件創建虛擬節點方法
+  import { renderToString } from "@vue/server-renderer"; // renderToString 是 Vue 組件 DOM 轉成字串方法
 
-      // 自定義修改內容
-    //   const props = defineProps({
-    //     alertInfo: {
-    //       type: Object,
-    //       required: true,
-    //       // 彈窗內容資料
-    //       default: () => ({
-    //         fristTitle: 'Tittle 1',
-    //         svg_icon: ``, //無法確認 ICON 是否可以用外部引入.vue檔方式，目前先使用字串方式
-    //         SecondTittle: '',
-    //         ThirdTittle: '',
-    //         ButtonText: '',
-    //         allowOutsideClick: null,
-    //       }),
-    //     },
-    //   });
 
-    const showAlert = () => {
+  // 自定義列的內容
+  const rowData1 = {
+  Title: "Title2 (Optional)",
+  Text: "This is a dynamic message passed from the parent component.",
+  ImgSrc: "../assets/images/blue_man.png"
+};
+
+const rowData2 = {
+  Title: "Title2 (Optional)",
+  Text: "This is a dynamic message passed from the parent component.This is a dynamic message passed from the parent component.This is a dynamic message passed from the parent component.This is a dynamic message passed from the parent component.",
+};
+
+  const showAlert = async () => {
+
+      // 引用範例
+      const row_content_1 = await renderToString(h(alert_web_L_row,{rowInfo: rowData1}));
+      const row_content_2 = await renderToString(h(alert_web_L_row,{rowInfo: rowData2}));
+      
       Swal.fire({
         title: `<h2>Tittle 1<h2>`,
         html: `<div class="content">
-                <div class="row_box">
-                    <div class="image"></div>
-                    <div class="text_box">
-                        <div class="title2 bold">Title2 (Optional)</div>
-                        <div class="body">You can chat freely after a privacy my chatroom by chatting dataYou can chat freely after a privacy my chatroom by chatting dataYou can chat freely after a privacy my chatroom by chatting dataYou can chat freely after a privacy my chatroom by chatting dataYou can chat freely after a privacy my chatroom by chatting dataYou can chat freely after a privacy my chatroom by chatting dataYou can chat freely after a privacy my chatroom by chatting dataYou can chat freely after a privacy my chatroom by chatting dataYou can chat freely after a privacy my chatroom by chatting dataYou can chat freely after a privacy my chatroom by chatting dataYou can chat freely after a privacy my chatroom by chatting dataYou can chat freely after a privacy my chatroom by chatting data</div>
-                    </div>
-                </div>
-                <div class="row_box">
-                    <div class="image"></div>
-                    <div class="text_box">
-                        <div class="title2 bold">Title2 (Optional)</div>
-                        <div class="body">You can chat freely after a privacy my chatroom by chatting dataYou can chat freely after a privacy my chatroom by chatting dataYou can chat freely after a privacy my chatroom by chatting dataYou can chat freely after a privacy my chatroom by chatting dataYou can chat freely after a privacy my chatroom by chatting dataYou can chat freely after a privacy my chatroom by chatting dataYou can chat freely after a privacy my chatroom by chatting dataYou can chat freely after a privacy my chatroom by chatting dataYou can chat freely after a privacy my chatroom by chatting dataYou can chat freely after a privacy my chatroom by chatting dataYou can chat freely after a privacy my chatroom by chatting dataYou can chat freely after a privacy my chatroom by chatting data</div>
-                    </div>
-                </div>
+                  ${row_content_1}
+                  ${row_content_2}
               </div>`,
 
         showCancelButton: true,
