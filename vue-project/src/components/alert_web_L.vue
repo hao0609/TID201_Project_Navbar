@@ -5,17 +5,25 @@
   import { renderToString } from "@vue/server-renderer"; // renderToString 是 Vue 組件 DOM 轉成字串方法
 
 
-  // 自定義列的內容
-  const rowData1 = {
-  Title: "Title2 (Optional)",
-  Text: "This is a dynamic message passed from the parent component.",
-  ImgSrc: "../assets/images/blue_man.png"
-};
+  import sampleImg from '@/assets/images/sample.jpg';  // 引用圖片範例
 
-const rowData2 = {
-  Title: "Title2 (Optional)",
-  Text: "This is a dynamic message passed from the parent component.This is a dynamic message passed from the parent component.This is a dynamic message passed from the parent component.This is a dynamic message passed from the parent component.",
-};
+  // 自定義 Title1 / 列的內容 /  按鈕文字
+
+  const Title1 = "Title1";
+
+  const rowData1 = {
+    Title2: "Title2 (Optional)",
+    Text: "This is a dynamic message passed from the parent component.",
+    ImgSrc: sampleImg,
+  };
+
+  const rowData2 = {
+    Title2: "Title2 (Optional)",
+    Text: "This is a dynamic message passed from the parent component.This is a dynamic message passed from the parent component.This is a dynamic message passed from the parent component.This is a dynamic message passed from the parent component.",
+    ImgSrc: sampleImg
+  };
+
+  const ButtonText = "按鈕文字";
 
   const showAlert = async () => {
 
@@ -24,14 +32,14 @@ const rowData2 = {
       const row_content_2 = await renderToString(h(alert_web_L_row,{rowInfo: rowData2}));
       
       Swal.fire({
-        title: `<h2>Tittle 1<h2>`,
+        title: `<h2>${Title1}<h2>`,
         html: `<div class="content">
                   ${row_content_1}
                   ${row_content_2}
               </div>`,
 
         showCancelButton: true,
-        confirmButtonText: `按鈕文字`,
+        confirmButtonText: `${ButtonText}`,
         cancelButtonText: `關閉`,
         allowOutsideClick: true,     
         customClass: {

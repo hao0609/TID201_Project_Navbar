@@ -6,7 +6,7 @@
           required: true,
         // 彈窗內容資料
           default: () => ({
-            Title: '',
+            Title2: '',
             Text: '',
             ImgSrc: '',
           }),
@@ -19,7 +19,7 @@
     <div class="row_box">
         <div class="image"><img :src="props.rowInfo.ImgSrc"></div>
         <div class="text_box">
-            <div class="title2 bold">{{ props.rowInfo.Title }}</div>
+            <div class="title2 bold">{{ props.rowInfo.Title2 }}</div>
             <div class="body">{{ props.rowInfo.Text }}</div>
         </div>
     </div>

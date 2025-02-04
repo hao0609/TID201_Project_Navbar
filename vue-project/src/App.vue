@@ -7,6 +7,7 @@ import Navbar_V3 from './components/Navbar_V3.vue'
 import alert_user_login from './alert/alert_user_login.vue'
 import alert_user_location from './alert/alert_user_location.vue'
 import alert_web_L from './components/alert_web_L.vue'
+import alert_mobile from './components/alert_mobile.vue'
 
 
 
@@ -18,6 +19,7 @@ const time = ref(3);
 const alert_web_M_userlogin = ref(null);
 const alert_web_M_userlocation = ref(null);
 const alert_web_L_content = ref(null);
+const alert_mobile_content = ref(null);
 
 const UserLocationShowAlert = () => {
     alert_web_M_userlocation.value.UserLocationShowAlert();  
@@ -29,6 +31,10 @@ const UserLoginShowAlert = () => {
 
 const Web_L_ShowAlert = () => {
     alert_web_L_content.value.showAlert();
+}
+
+const alert_mobile_ShowAlert = () => {
+    alert_mobile_content.value.showAlert();
 }
 
 // onMounted(() => {
@@ -74,12 +80,14 @@ const Web_L_ShowAlert = () => {
         <alert_user_login ref="alert_web_M_userlogin"/>
         <alert_user_location ref="alert_web_M_userlocation"/>
         <alert_web_L ref="alert_web_L_content"/>
+        <alert_mobile ref="alert_mobile_content"/>
 
          <div class="alert">
             <button @click="Web_L_ShowAlert" class="showAlert">alert_web_L</button> 
 
             <button @click="UserLocationShowAlert" class="showAlert">alert_web_M</button> 
 
+            <button @click="alert_mobile_ShowAlert" class="showAlert">alert_mobile</button> 
 
         </div>
     

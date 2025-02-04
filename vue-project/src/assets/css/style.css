@@ -419,6 +419,12 @@ p, .body {
   }
 }
 
+.my-swal-L > .swal2-html-container > .content > .row_box > .image > img {
+  width: 100%;
+  height: 100%;
+  border-radius: 12px;
+}
+
 .my-swal-L > .swal2-html-container > .content > .row_box > .text_box {
   width: 715px;
   text-align: left;
