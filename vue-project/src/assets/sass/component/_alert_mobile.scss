@@ -11,8 +11,14 @@
     padding: 2.5rem 1.5rem;
     gap: 1.5rem;    
     flex-direction: column;
-    border-radius: 20px;
+    border-radius: 20px;    
   }
+
+  .my-swal-mobile > .swal2-close{
+    width:unset;
+    height: unset;
+  }
+
   .my-swal-mobile > .swal2-title {
     order: 1; /* 將標題調整為第一個 */
     font-size: unset;
@@ -22,74 +28,33 @@
   .my-swal-mobile > .swal2-html-container > .content {
     @include flex-center;
     flex-direction: column;
-    gap: 2.5rem;
-    max-height: 350px;
-    max-width: 1090px;
-    
+    gap: 1.5rem;
   }
 
-  //自定義 scrollbar
-  
-  .my-swal-mobile > .swal2-html-container::-webkit-scrollbar{
-    width: 10px;
-  }
-
-  .my-swal-mobile > .swal2-html-container::-webkit-scrollbar-thumb{
-    background: $neutral-400; 
-    border-radius: 100px;
-  }
-
-  .my-swal-mobile > .swal2-html-container > .content > .row_box {
-    display: flex;
-    justify-content: space-between;
-    width: 100%;
-    @media screen and (max-width: 1145px) {
-      align-items: center;
-      flex-direction: column;
-    }
-  }
-
-  .my-swal-mobile > .swal2-html-container > .content > .row_box > .image{
-    width: 335px;
-    height: 273px;
-    border-radius: 12px;
-    background:  #CCD1D5;
-    @include mobile(){
-      width: 100%;
-    }
-  } 
-
-  .my-swal-mobile > .swal2-html-container > .content > .row_box > .image > img{
+  .my-swal-mobile > .swal2-html-container > .content > .image{
     width: 100%;
     height: 100%;
     border-radius: 12px;
+    background:  #CCD1D5;
   } 
 
-  .my-swal-mobile > .swal2-html-container > .content > .row_box > .text_box{
-    width: 715px;
-    text-align: left;
+  .my-swal-mobile > .swal2-html-container > .content > .image > img{
+    width: 100%;
+    height: 100%;
+    border-radius: 12px;
+    display: block;
+  } 
+
+  .my-swal-mobile > .swal2-html-container > .content > .text_box{
     display: flex;
+    gap: 16px;
     flex-direction: column;
     justify-content: space-between;
-    @media screen and (max-width: 1145px) {
-      margin: 2.5rem 0;
-      width: 100%;
-      text-align: center;
-    }
   } 
-  .my-swal-mobile > .swal2-html-container > .content > .row_box > .text_box >.title2{
+  .my-swal-mobile > .swal2-html-container > .content > .text_box >.title1{
     color: $neutral-700;  
-    @media screen and (max-width: 1145px) {
-      margin: 10px 0;
-    }
   }
 
-  .my-swal-mobile > .swal2-html-container > .content > .row_box > .text_box >.body{
-    min-height: 216px;
-    @media screen and (max-width: 1145px) {
-      min-height: 0;
-    }
-  }
 
 
   .my-swal-mobile .swal2-html-container {
@@ -104,14 +69,15 @@
     gap: 8px;
 
   }
-  .my-swal-mobile > .swal2-actions > .swal2-confirm{    
-    order: 2; /* 將 關閉按鈕 調整為第一個 */
-    margin: 0;
-  }
   .my-swal-mobile > .swal2-actions > .swal2-cancel{
-    order: 1; /* 將 另個按鈕 調整為第二個 */
+    order: 1; /* 將 關閉按鈕 調整為第一個 */
     margin: 0;
   }
+  .my-swal-mobile > .swal2-actions > .swal2-confirm{    
+    order: 2; /* 將 另個按鈕 調整為第二個 */
+    margin: 0;
+  }
+
 
 
 
