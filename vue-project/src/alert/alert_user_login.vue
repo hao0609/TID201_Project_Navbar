@@ -1,6 +1,17 @@
 <script setup>
 import { ref } from 'vue'
 import alert_web_M from '../components/alert_web_M.vue';
+import { useRouter } from "vue-router";
+
+// 按鈕 所執行的功能
+
+const router = useRouter();
+const function_1 = () => {
+//   console.log("執行第一個功能");
+
+   router.push('/login');   // Vue Router 內部導航  
+}
+
 
 const userAlertInfo = {
     fristTitle: '尚未登入',
@@ -14,6 +25,7 @@ const userAlertInfo = {
     ThirdTittle: '若要遊玩積分遊戲，請先登入會員',
     ButtonText: '前往登入',
     allowOutsideClick: false,   //強迫用戶無法點選空白處關閉視窗，只能進行登入
+    function: function_1,
 }
 
 const alert_web_M_content = ref(null);

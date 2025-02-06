@@ -2,6 +2,13 @@
 import { ref } from 'vue'
 import alert_web_M from '../components/alert_web_M.vue';
 
+// 按鈕 所執行的功能
+
+const function_1 = () => {
+  console.log("執行功能");
+
+}
+
 const locationAlertInfo = {
     fristTitle: '打開定位',
     svg_icon: `
@@ -15,6 +22,7 @@ const locationAlertInfo = {
     ThirdTittle: '才能順利完成定位任務領取積分!',
     ButtonText: 'OK !',
     allowOutsideClick: true,  
+    function:function_1 ,
 }
 
 const alert_web_M_content = ref(null);

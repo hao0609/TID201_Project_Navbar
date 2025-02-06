@@ -1,21 +1,30 @@
 <script setup>
   import Swal from 'sweetalert2';
 
-  import sampleImg from '@/assets/images/sample.jpg';  // 引用圖片範例
 
-  //自定義列的內容
-  const alertInfo = {
-  showCloseButton: true,
-  Title_H2: "H2",           //若不要顯示 H2 標題,則設為空字串
-  ImgSrc: sampleImg,
-  showTextBox:false,
-  Title1: "Title1 (optional)",
-  Title2: "Title2Title2Title2Title2Title2Title2Title2Title2",
-  Button1_Text: "關閉",
-  Button2_Text: "按鈕文字",
-  pictureMode: false,
 
-};
+  // 自定義修改內容
+  const props = defineProps({
+  alertInfo: {
+    type: Object,
+    required: true,
+    // 彈窗內容資料
+    default: () => ({
+      showCloseButton: null,
+      Title_H2: "",           //若不要顯示 H2 標題,則設為空字串
+      ImgSrc: null,
+      showTextBox:null,           //若不要顯示下方文字區域,則設為 false
+      Title1: "",
+      Title2: "",
+      showCancelButton: null,
+      Button1_Text: "",
+      Button2_Text: "",
+      function_2: null,
+      function_1: null,
+    }),
+  },
+});
+
 
 
   const showAlert = async () => {
@@ -23,19 +32,19 @@
 
     
       Swal.fire({
-        title: `<h2>${alertInfo.Title_H2}<h2>`,
+        title: `<h2>${props.alertInfo.Title_H2}<h2>`,
         html: `<div class="content">
-                <div class="image"><img src="${alertInfo.ImgSrc}"></div>
+                <div class="image"><img src="${props.alertInfo.ImgSrc}"></div>
                 <div class="text_box" id="alert_mobile_textBox">
-                    <div class="title1 bold">${alertInfo.Title1}</div>
-                    <div class="title2 bold">${alertInfo.Title2}</div>
+                    <div class="title1 bold">${props.alertInfo.Title1}</div>
+                    <div class="title2 bold">${props.alertInfo.Title2}</div>
                 </div>
               </div>`,
 
-        showCancelButton: true,
-        showCloseButton: alertInfo.showCloseButton,
-        confirmButtonText: `${alertInfo.Button2_Text}`,
-        cancelButtonText: `${alertInfo.Button1_Text}`,
+        showCancelButton: props.alertInfo.showCancelButton,
+        showCloseButton: props.alertInfo.showCloseButton,
+        confirmButtonText: `${props.alertInfo.Button2_Text}`,
+        cancelButtonText: `${props.alertInfo.Button1_Text}`,
         allowOutsideClick: true,     
         customClass: {
         popup: 'my-swal-mobile',
@@ -51,12 +60,27 @@
           </svg>
         `;
       }
-      });
+      }).then((result) => {
+      /* 兩個按鈕點擊後各個執行的功能 */
+      if (result.isConfirmed) {
+        props.alertInfo.function_1();
+        
+      } else if (result.isDismissed) {
+        props.alertInfo.function_2();
 
-      // 隱藏下方文字區域
+        // router.push("/login"); // Vue Router 內部導航
+      }
+    });
 
-      if (alertInfo.showTextBox == false) {
+      // showTextBox = false 時,隱藏下方文字區域
+
+      if (props.alertInfo.showTextBox == false) {
          document.querySelector('#alert_mobile_textBox').style.display = 'none';
+      }
+
+      // 如果要顯示 X 按鈕，調整與彈窗的上方距離
+      if (props.alertInfo.showCloseButton == true) {
+         document.querySelector('.my-swal-mobile').style.paddingTop = '20px';
       }
 
     }

@@ -13,7 +13,6 @@
     flex-direction: column;
     border-radius: 20px;
     @include mobile(){
-      padding: 15px 1.5rem; ;
       gap: 20px;
     }
   }
@@ -60,6 +59,7 @@
     background:  #CCD1D5;
     @include mobile(){
       width: 100%;
+      height: 100%;
     }
   } 
 
@@ -67,6 +67,7 @@
     width: 100%;
     height: 100%;
     border-radius: 12px;
+    display: block;
   } 
 
   .my-swal-L > .swal2-html-container > .content > .row_box > .text_box{

@@ -1,18 +1,18 @@
 
 // alert_Mobile
 
-.swal2-container{
-  background: rgba(35, 37, 41, 0.50) !important;
-}
-
-.my-swal-mobile{
-    @include flex-center;
-    width: 335px;
-    padding: 2.5rem 1.5rem;
-    gap: 1.5rem;    
-    flex-direction: column;
-    border-radius: 20px;    
+  .swal2-container{
+    background: rgba(35, 37, 41, 0.50) !important;
+    padding: 0 20px;
   }
+
+  .my-swal-mobile{
+      @include flex-center;
+      padding: 2.5rem 1.5rem;
+      gap: 1.5rem;    
+      flex-direction: column;
+      border-radius: 20px;    
+    }
 
   .my-swal-mobile > .swal2-close{
     width:unset;
@@ -22,7 +22,7 @@
   .my-swal-mobile > .swal2-title {
     order: 1; /* 將標題調整為第一個 */
     font-size: unset;
-    padding: 0;
+    padding: 0 40px;      /* 設左右 40px 是防止被 X按鈕擋到 */
     color: $neutral-700;
   }
   .my-swal-mobile > .swal2-html-container > .content {

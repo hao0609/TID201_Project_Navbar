@@ -365,7 +365,6 @@ p, .body {
 }
 @media screen and (max-width: 576px) {
   .my-swal-L {
-    padding: 15px 1.5rem;
     gap: 20px;
   }
 }
@@ -416,6 +415,7 @@ p, .body {
 @media screen and (max-width: 576px) {
   .my-swal-L > .swal2-html-container > .content > .row_box > .image {
     width: 100%;
+    height: 100%;
   }
 }
 
@@ -423,6 +423,7 @@ p, .body {
   width: 100%;
   height: 100%;
   border-radius: 12px;
+  display: block;
 }
 
 .my-swal-L > .swal2-html-container > .content > .row_box > .text_box {
@@ -482,12 +483,12 @@ p, .body {
 
 .swal2-container {
   background: rgba(35, 37, 41, 0.5) !important;
+  padding: 0 20px;
 }
 
 .my-swal-mobile {
   display: flex;
   align-items: center;
-  width: 335px;
   padding: 2.5rem 1.5rem;
   gap: 1.5rem;
   flex-direction: column;
@@ -502,7 +503,7 @@ p, .body {
 .my-swal-mobile > .swal2-title {
   order: 1; /* 將標題調整為第一個 */
   font-size: unset;
-  padding: 0;
+  padding: 0 40px; /* 設左右 40px 是防止被 X按鈕擋到 */
   color: #232529;
 }
 
