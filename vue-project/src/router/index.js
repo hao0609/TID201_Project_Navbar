@@ -5,15 +5,21 @@ import Navbar_V1 from '../components/Navbar_V1.vue'
 import Navbar_V3 from '../components/Navbar_V3.vue'
 import login from '../view/login.vue'
 import alert_test from '../view/alert_test.vue'
+import MissionGeneralView from '../view/MissionGeneralView.vue'
 
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
   routes: [
 
+    // {
+    //   path: '/',
+    //   name: 'alert_test',
+    //   component: alert_test
+    // },
     {
       path: '/',
-      name: 'alert_test',
-      component: alert_test
+      name: 'MissionGeneralView',
+      component: MissionGeneralView
     },
    
     {
