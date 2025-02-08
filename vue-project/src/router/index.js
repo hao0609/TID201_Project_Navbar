@@ -1,4 +1,4 @@
-import { createRouter, createWebHistory } from 'vue-router'
+import { createRouter, createWebHistory ,createWebHashHistory} from 'vue-router'
 
 import Navbar_V1 from '../components/Navbar_V1.vue'
 // import Navbar_V2 from '../components/Navbar_V2.vue'
@@ -8,7 +8,7 @@ import alert_test from '../view/alert_test.vue'
 import MissionGeneralView from '../view/MissionGeneralView.vue'
 
 const router = createRouter({
-  history: createWebHistory(import.meta.env.BASE_URL),
+  history: createWebHashHistory(),
   routes: [
 
     // {
@@ -38,11 +38,6 @@ const router = createRouter({
       component: Navbar_V3
     },
     {
-      path: '/login',
-      name: 'login',
-      component: login
-    },
-        {
       path: '/login',
       name: 'login',
       component: login

@@ -41,7 +41,7 @@ const checked_change = () => {
     <header>
         <icon_white/>
         <nav>
-            <ul class="menu body bold txt-neutral-0">
+            <ul class="menu bold txt-neutral-0">
                 <li><RouterLink to="/" >景點介紹</RouterLink></li>
                 <li><RouterLink to="/">積分任務</RouterLink></li>
                 <li><RouterLink to="/">商城</RouterLink></li>

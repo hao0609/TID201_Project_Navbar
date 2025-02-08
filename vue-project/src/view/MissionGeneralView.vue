@@ -1,102 +1,206 @@
-<template>
-  <div class="viewer" ref="viewer">
-    <div class="map" ref="map":style="mapStyle" @mousedown="startDrag"></div>
-  </div>
-</template>
-
 <script setup>
-import { ref, computed, onMounted } from "vue";
-import background from "../assets/images/background.png";
-const viewer = ref(null);
-const map = ref(null);
+    import { ref, computed, onMounted, onUnmounted, nextTick } from 'vue';
+    import ground from '../assets/images/MessionGeneral/ground.vue';
+    import road from '../assets/images/MessionGeneral/road.vue';
+    import bridge from '../assets/images/MessionGeneral/bridge.vue';
 
-// 地圖偏移量 & 縮放
-const offsetX = ref(0);
-const offsetY = ref(0);
+    import Navbar_V1 from '../components/Navbar_V1.vue';
+    const BASE_W = 1440;
+    const BASE_H = 1024;
 
+    const mover = ref(null);
+    const stageW = ref(window.innerWidth);
+    const stageH = ref(window.innerHeight);
+    const moverW = ref(0);
+    const moverH = ref(0);
+    const eScale = ref(1);
+    const dragX = ref(0);
+    const dragY = ref(0);
+    const isDragging = ref(false);
+    const startX = ref(0);
+    const startY = ref(0);
 
-// 記錄 viewer 和 map 的尺寸
-const viewerWidth = ref(0);
-const viewerHeight = ref(0);
-const mapWidth = ref(0);
-const mapHeight = ref(0);
+    const updateSize = () => {
+      stageW.value = window.innerWidth;
+      stageH.value = window.innerHeight;
 
-let startX = 0, startY = 0;
-let isDragging = false;
+      moverW.value = stageW.value * 1.1;
+      moverH.value = moverW.value * (BASE_H / BASE_W);
 
-// 計算地圖樣式
-const mapStyle = computed(() => ({
-  width:  `${mapWidth.value}px`,
-  height: `${mapHeight.value}px`,
-  transform: `translate(${offsetX.value}px, ${offsetY.value}px)`,
-  cursor: isDragging ? "grabbing" : "grab",
-  backgroundImage: `url(${background})`,
-  backgroundSize: "cover",
-}));
+      if (moverH.value < stageH.value) {
+        moverH.value = stageH.value * 1.1;
+        moverW.value = moverH.value / (BASE_H / BASE_W);
+      }
 
-//計算合法範圍 (X, Y 不可超出 viewer)
-const clampPosition = () => {
-  const minX = viewerWidth.value - mapWidth.value;
-  const minY = viewerHeight.value - mapHeight.value;
-  //console.log(viewerWidth.value);
-  //console.log(mapWidth.value);
-  
-  console.log(minX,minY);
-  
+       // 確保拖曳位置仍在可視範圍內
+       dragX.value = Math.min(0, Math.max(dragX.value, stageW.value - moverW.value));
+      dragY.value = Math.min(0, Math.max(dragY.value, stageH.value - moverH.value));
+    };
 
-  offsetX.value = Math.max(minX, Math.min(0, offsetX.value));
-  offsetY.value = Math.max(minY, Math.min(0, offsetY.value));
-};
+    const startDrag = (event) => {
+      console.log("Drag started"); // Debugging
+      isDragging.value = true;
 
-// 拖曳事件
-const startDrag = (e) => {
-  isDragging = true;
-  startX = e.clientX - offsetX.value;
-  startY = e.clientY - offsetY.value;
-  document.addEventListener("mousemove", onDrag);
-  document.addEventListener("mouseup", stopDrag);
-};
+      mover.value.classList.add("active"); // 啟用滑鼠拖曳
+      const clientX = event.touches ? event.touches[0].clientX : event.clientX;
+      const clientY = event.touches ? event.touches[0].clientY : event.clientY;
 
-const onDrag = (e) => {
-  if (!isDragging) return;
-  offsetX.value = e.clientX - startX;
-  offsetY.value = e.clientY - startY;
-  clampPosition(); // 限制範圍
-};
+      startX.value = clientX - dragX.value;
+      startY.value = clientY - dragY.value;
 
-const stopDrag = () => {
-  isDragging = false;
-  document.removeEventListener("mousemove", onDrag);
-  document.removeEventListener("mouseup", stopDrag);
-};
+      document.addEventListener("mousemove", onDrag);
+      document.addEventListener("mouseup", stopDrag);
+      document.addEventListener("touchmove", onDrag, { passive: false });
+      document.addEventListener("touchend", stopDrag);
+    };
 
-// 初始化
-onMounted(() => {
-  viewerWidth.value = viewer.value.clientWidth;
-  viewerHeight.value = viewer.value.clientHeight;
-  mapWidth.value = viewerWidth.value*1.05;
-  mapHeight.value = viewerHeight.value*1;
+    const onDrag = (event) => {
+      if (!isDragging.value) return;
 
-  console.log(mapWidth.value,mapHeight.value);
-  
-});
+      const clientX = event.touches ? event.touches[0].clientX : event.clientX;
+      const clientY = event.touches ? event.touches[0].clientY : event.clientY;
+
+      dragX.value = clientX - startX.value;
+      dragY.value = clientY - startY.value;
+
+      dragX.value = Math.min(0, Math.max(dragX.value, stageW.value - moverW.value));
+      dragY.value = Math.min(0, Math.max(dragY.value, stageH.value - moverH.value));
+
+      console.log(dragX.value, dragY.value);
+      console.log(stageW.value-moverW.value,stageH.value-moverH.value);
+    //   console.log(moverW.value,moverH.value);
+      
+
+      // console.log(`Dragging: X=${dragX.value}, Y=${dragY.value}`); // Debugging
+    };
+
+    const stopDrag = () => {
+      console.log("Drag stopped"); // Debugging
+      isDragging.value = false;
+      mover.value.classList.remove("active"); // 停止拖曳
+
+      document.removeEventListener("mousemove", onDrag);
+      document.removeEventListener("mouseup", stopDrag);
+      document.removeEventListener("touchmove", onDrag);
+      document.removeEventListener("touchend", stopDrag);
+    };
+
+    const moverStyle = computed(() => ({
+      width: `${moverW.value}px`,
+      height: `${moverH.value}px`,
+      transform: `translate3d(${dragX.value}px, ${dragY.value}px, 0) scale(${eScale.value})`
+    }));
+
+    onMounted(async () => {
+      console.log("mover:", mover.value);
+      window.addEventListener("resize", updateSize);
+      updateSize();
+
+      await nextTick();
+      if (mover.value) {
+        mover.value.addEventListener("mousedown", startDrag);
+        mover.value.addEventListener("touchstart", startDrag, { passive: false });
+      }
+    });
+
+    onUnmounted(() => {
+      window.removeEventListener("resize", updateSize);
+      if (mover.value) {
+        mover.value.removeEventListener("mousedown", startDrag);
+        mover.value.removeEventListener("touchstart", startDrag);
+      }
+    });
+
 </script>
 
-<style scoped>
-.viewer {
-  width: 100vw;
-  height: 100vh;
-  background-color: #eee;
-  position: relative;
-  overflow: hidden;
-}
 
-.map {
-  /* width: 1920px;
-  height: 1080px; */
-  position: absolute;
-  top: 0;
-  left: 0;
-  user-select: none;
-}
+<template>
+    <Navbar_V1/>
+    <div class="body">
+        <div id="wrapper">
+            <div id="container">
+                <div id="stage">
+                    <div ref="mover" class="mover" :style="moverStyle" @mousedown="startDrag" @touchstart.prevent="startDrag">
+                        <div class="wrapper">
+                            <div class="item">
+                                <ground class="ground"/>
+                            </div>
+                            <div class="item">
+                                <road class="road"/>
+                            </div>
+                            <div class="item">
+                                <bridge class="bridge"/>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+</template>
+
+
+<style>
+    #container, .body {
+        width: 100%;
+    }
+    .body{    
+        height: 100vh;
+        overflow: hidden;
+        background-color: #FC79D0;
+    }
+    #wrapper {
+        height: 100%;
+    }
+    #stage {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100vh;
+        padding: 0 !important;
+        z-index: 0;
+        overflow: hidden;
+    }
+    #stage .mover {
+        position: relative;
+        transform-origin: 0 0;
+        pointer-events: none;
+        will-change: transform;
+    }
+    #stage .mover.active {
+        cursor: move;
+        pointer-events: auto;
+    }
+    #stage .mover .wrapper, #stage .mover .wrapper .item {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+    }
+    #stage .mover .wrapper .item svg {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        -webkit-backface-visibility: hidden;
+    }
+    #stage .mover {
+    position: relative;
+    transform-origin: 0 0;
+    pointer-events: auto; /* 允許滑鼠事件 */
+    will-change: transform;
+    cursor: grab;
+    }
+
+    #stage .mover.active {
+    cursor: move;
+    pointer-events: auto; /* 啟用滑鼠拖動 */
+    }
 </style>
+
+
+
