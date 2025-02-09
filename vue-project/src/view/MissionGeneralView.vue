@@ -16,15 +16,11 @@
     const stageH = ref(window.innerHeight);
     const moverW = ref(0);
     const moverH = ref(0);
-    const eScale = ref(1);
     const dragX = ref(0);
     const dragY = ref(0);
     const moving = ref(false);
-    const scaling = ref(false);
-    const velocityX = ref(0);
-    const velocityY = ref(0);
-    const friction = 0.95;
     let px = 0, py = 0, dx = 0, dy = 0, frameID = null;
+    const friction = 0.95;
 
     const updateSize = () => {
       stageW.value = window.innerWidth;
@@ -39,13 +35,13 @@
       }
 
        // 確保拖曳位置仍在可視範圍內
-       dragX.value = Math.min(0, Math.max(dragX.value, stageW.value - moverW.value));
-       dragY.value = Math.min(0, Math.max(dragY.value, stageH.value - moverH.value));
+       dragX.value = Math.min(0, Math.max(dragX.value + dx, stageW.value - moverW.value));
+       dragY.value = Math.min(0, Math.max(dragY.value + dy, stageH.value - moverH.value));
     };
 
     const startDrag = (event) => {
       console.log("Drag started"); // Debugging
-      mover.value.classList.add("active"); // 開始拖曳
+      // mover.value.classList.add("dragging"); // 開始拖曳
       moving.value = true;
       const clientX = event.touches ? event.touches[0].clientX : event.clientX;
       const clientY = event.touches ? event.touches[0].clientY : event.clientY;
@@ -53,8 +49,7 @@
       py = clientY;
       dx = 0;
       dy = 0;
-      velocityX.value = 0;
-      velocityY.value = 0;
+
       document.addEventListener("mousemove", onDrag);
       document.addEventListener("mouseup", stopDrag);
       document.addEventListener("touchmove", onDrag, { passive: false });
@@ -72,6 +67,13 @@
       dragX.value = Math.min(0, Math.max(dragX.value + dx, stageW.value - moverW.value));
       dragY.value = Math.min(0, Math.max(dragY.value + dy, stageH.value - moverH.value));
 
+      // **確保在下一幀更新 transform**
+      // requestAnimationFrame(() => {
+      //   if (mover.value) {
+      //     mover.value.style.transform = `translate3d(${dragX.value}px, ${dragY.value}px, 0) scale(${eScale.value})`;
+      //   }
+      // });
+
       console.log(dragX.value, dragY.value);
       console.log(stageW.value-moverW.value,stageH.value-moverH.value);
     //   console.log(moverW.value,moverH.value);
@@ -83,7 +85,7 @@
     const stopDrag = () => {
       console.log("Drag stopped"); // Debugging
       moving.value = false;
-      mover.value.classList.remove("active"); // 停止拖曳
+      // mover.value.classList.remove("dragging"); // 停止拖曳
 
       document.removeEventListener("mousemove", onDrag);
       document.removeEventListener("mouseup", stopDrag);
@@ -99,15 +101,31 @@
       dy *= friction;
       dragX.value = Math.min(0, Math.max(dragX.value + dx, stageW.value - moverW.value));
       dragY.value = Math.min(0, Math.max(dragY.value + dy, stageH.value - moverH.value));
+    
       frameID = requestAnimationFrame(inertiaMove);
     };
 
     const moverStyle = computed(() => ({
       width: `${moverW.value}px`,
       height: `${moverH.value}px`,
-      transform: `translate3d(${dragX.value}px, ${dragY.value}px, 0) scale(${eScale.value})`,
-      transition: moving.value ? "none" : "transform 0.1s ease-out"
+      transform: `matrix3d(1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, ${dragX.value}, ${dragY.value}, 0, 1)`,
+      willChange: "transform"
     }));
+
+    const active = computed({
+      get() {
+        return mover.value?.classList.contains('active') || false;
+      },
+      set(value) {
+        if (mover.value) {
+          if (value) {
+            mover.value.classList.add('active');
+          } else {
+            mover.value.classList.remove('active');
+          }
+        }
+      }
+    });
 
     onMounted(async () => {
       console.log("mover:", mover.value);
@@ -139,7 +157,7 @@
         <div id="wrapper">
             <div id="container">
                 <div id="stage">
-                    <div ref="mover" class="mover" :style="moverStyle" @mousedown="startDrag" @touchstart.prevent="startDrag">
+                    <div ref="mover" class="mover active" :style="moverStyle" @mousedown="startDrag" @touchstart.prevent="startDrag">
                         <div class="wrapper">
                             <div class="item">
                                 <ground class="ground"/>
@@ -192,16 +210,26 @@
         z-index: 0;
         overflow: hidden;
     }
+    
     #stage .mover {
-        position: relative;
-        transform-origin: 0 0;
-        pointer-events: none;
-        will-change: transform;
+      position: relative;
+      transform-origin: 0 0;
+      pointer-events: none;
+      will-change: transform
     }
+
     #stage .mover.active {
-        cursor: move;
-        pointer-events: auto;
+        cursor: grab;
+        pointer-events: auto
     }
+
+    #stage .mover.active.dragging {
+        cursor: grabbing;
+        pointer-events: auto
+    }
+
+
+
     #stage .mover .wrapper, #stage .mover .wrapper .item {
         position: absolute;
         top: 0;
@@ -217,18 +245,7 @@
         height: 100%;
         -webkit-backface-visibility: hidden;
     }
-    #stage .mover {
-    position: relative;
-    transform-origin: 0 0;
-    pointer-events: auto; /* 允許滑鼠事件 */
-    will-change: transform;
-    cursor: grab;
-    }
 
-    #stage .mover.active {
-    cursor: grabbing;
-    pointer-events: auto; /* 啟用滑鼠拖動 */
-    }
 
 </style>
 
