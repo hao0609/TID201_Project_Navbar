@@ -7,6 +7,7 @@
     import station from '../assets/images/MessionGeneral/station.vue';
     import Navbar_V1 from '../components/Navbar_V1.vue';
     import logo from '../assets/images/MessionGeneral/logo.vue';
+    import pin from '../assets/images/MessionGeneral/pin.vue';
 
     const BASE_W = 1440;                // 基準寬度 (來自每個 SVG 檔的寬高)
     const BASE_H = 1024;                // 基準高度
@@ -161,7 +162,6 @@
                             <div class="item">
                                 <bridge class="bridge"/>
                             </div>
-
                             <div class="item">
                                 <station class="station"/>
                             </div>
@@ -171,6 +171,9 @@
                             <div class="item">
                                 <logo class="logo"/>
                             </div>
+                        </div>
+                        <div class="hitarea">
+                          <button class="pin"><pin/></button>
                         </div>
                     </div>
                 </div>
@@ -238,8 +241,54 @@
         -webkit-backface-visibility: hidden;
     }
 
+    #stage .mover .hitarea .hit svg {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        -webkit-backface-visibility: hidden;
+    }
+
+
+    #stage .mover.active .hitarea .hit .station path {
+        cursor: pointer;
+    }
+
+
+    #stage .mover .hitarea {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        pointer-events: auto
+    }
+
+    #stage .mover .hitarea button{
+      position: absolute;
+      display: block;
+      padding: 0;
+      margin: 0;
+      border: none;
+      background: none;
+      cursor: pointer;
+      outline: none;
+      transition: none;
+    }
+
+    #stage .mover .hitarea .pin{
+      width:71px;
+      height:103px;
+      left:830px;  /*到時候會用程式寫*/
+      top: 100px;
+    }
+    
+
+
 
 </style>
+
 
 
 
