@@ -45,7 +45,8 @@
                             </div>
                         </div>
                         <div class="hitarea">
-                          <button class="pin" :style="pinStyle"><pin/></button>
+                          <button class="pin" :style="pinStyle" @click="clickPin"><pin/></button>
+                          <!-- <pin/> -->
                         </div>
                     </div>
                 </div>
@@ -153,6 +154,15 @@
       position: absolute;
       width:71px;
       height:103px;
+    }
+
+    #stage .mover .hitarea .pin svg{
+        width: 100%;
+        height: 100%;
+        position: absolute;
+        top:0;
+        left: 0;
+        transform-origin: 50% 85%
     }
     
 
