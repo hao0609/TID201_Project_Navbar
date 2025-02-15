@@ -63,7 +63,7 @@ export function movejs() {
 
     const onDrag = (event) => {
       if (!moving.value) return;
-      mover.value.classList.add("dragging"); // 開始拖曳
+
       const clientX = event.touches ? event.touches[0].clientX : event.clientX;
       const clientY = event.touches ? event.touches[0].clientY : event.clientY;
       dx = clientX - px;
@@ -75,6 +75,8 @@ export function movejs() {
       dragY.value = Math.min(0, Math.max(dragY.value + dy, stageH.value - moverH.value));
 
       console.log(`Dragging: X=${dragX.value}, Y=${dragY.value}`); // Debugging
+
+      mover.value.classList.add("dragging"); // 開始拖曳
     };
 
     const stopDrag = () => {
@@ -84,7 +86,7 @@ export function movejs() {
 
       document.removeEventListener("mousemove", onDrag);
       document.removeEventListener("mouseup", stopDrag);
-      document.removeEventListener("touchmove", onDrag);
+      document.removeEventListener("touchmove", onDrag, { passive: false });
       document.removeEventListener("touchend", stopDrag);
 
       frameID = requestAnimationFrame(inertiaMove);
@@ -138,7 +140,7 @@ export function movejs() {
       window.removeEventListener("resize", updateSize);
       if (mover.value) {
         mover.value.removeEventListener("mousedown", startDrag);
-        mover.value.removeEventListener("touchstart", startDrag);
+        mover.value.removeEventListener("touchstart", startDrag, { passive: false });
       }
       cancelAnimationFrame(frameID);
     });
@@ -147,8 +149,6 @@ export function movejs() {
         mover,
         moverStyle,
         active,
-        moverH,
-        moverW,
     };
 } 
     
