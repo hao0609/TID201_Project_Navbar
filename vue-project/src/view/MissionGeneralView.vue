@@ -1,5 +1,8 @@
 <script setup>
     import { ref } from 'vue'
+    import building_tree_1 from '../assets/images/MessionGeneral/building_tree.png'
+    import ground_1 from '../assets/images/MessionGeneral/ground.png'
+    
     import ground from '../assets/images/MessionGeneral/ground.vue';
     import road from '../assets/images/MessionGeneral/road.vue';
     import bridge from '../assets/images/MessionGeneral/bridge.vue';
@@ -82,19 +85,22 @@
                     <div ref="mover" class="mover active" :style="moverStyle" @mousedown="startDrag" @touchstart.prevent="startDrag">
                         <div class="wrapper">
                             <div class="item">
-                                <ground class="ground"/>
+                                <!-- <ground class="ground"/> -->
+                                <img :src=ground_1 class="bg_image" >
+                                
                             </div>
                             <div class="item">
                                 <road class="road"/>
                             </div>
                             <div class="item">
-                                <bridge class="bridge"/>
+                                <!-- <bridge class="bridge"/> -->
                             </div>
                             <div class="item">
                                 <station class="station"/>
                             </div>
                             <div class="item">
-                                <building_tree class="building_tree"/>
+                                <!-- <building_tree class="building_tree"/> -->
+                                <img :src=building_tree_1 class="bg_image" >
                             </div>
                             <div class="item">
                                 <logo class="logo"/>
@@ -116,6 +122,11 @@
 <style lang="scss"> 
     @import "@/assets/sass/base/_color.scss";
     @import "@/assets/sass/base/_font.scss";
+
+    .bg_img{
+        width: 100%;
+        height: 100%;
+    }
 
     button {
         cursor: pointer;
