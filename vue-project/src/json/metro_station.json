@@ -1,0 +1,366 @@
+{
+    "metro_lines": [
+      {
+        "line_name": "紅線",
+        "stations": [
+          {
+            "station_name": "象山",
+            "latitude": 25.032816,
+            "longitude": 121.57008
+          },
+          {
+            "station_name": "台北101/世貿",
+            "latitude": 25.033028,
+            "longitude": 121.562755
+          },
+          {
+            "station_name": "信義安和",
+            "latitude": 25.03331,
+            "longitude": 121.55265
+          },
+          {
+            "station_name": "大安",
+            "latitude": 25.033311,
+            "longitude": 121.54237
+          },
+          {
+            "station_name": "大安森林公園",
+            "latitude": 25.033225,
+            "longitude": 121.536151
+          },
+          {
+            "station_name": "東門",
+            "latitude": 25.033894,
+            "longitude": 121.528766
+          },
+          {
+            "station_name": "中正紀念堂",
+            "latitude": 25.032767,
+            "longitude": 121.518273
+          },
+          {
+            "station_name": "台大醫院",
+            "latitude": 25.041399,
+            "longitude": 121.51602
+          },
+          {
+            "station_name": "台北車站",
+            "latitude": 25.04631,
+            "longitude": 121.517415
+          },
+          {
+            "station_name": "中山",
+            "latitude": 25.052778,
+            "longitude": 121.520278
+          },
+          {
+            "station_name": "雙連",
+            "latitude": 25.057575,
+            "longitude": 121.520685
+          },
+          {
+            "station_name": "民權西路",
+            "latitude": 25.06235,
+            "longitude": 121.519585
+          },
+          {
+            "station_name": "圓山",
+            "latitude": 25.071409,
+            "longitude": 121.520074
+          },
+          {
+            "station_name": "劍潭",
+            "latitude": 25.084201,
+            "longitude": 121.524955
+          },
+          {
+            "station_name": "士林",
+            "latitude": 25.093492,
+            "longitude": 121.52623
+          },
+          {
+            "station_name": "芝山",
+            "latitude": 25.102718,
+            "longitude": 121.522546
+          },
+          {
+            "station_name": "明德",
+            "latitude": 25.109815,
+            "longitude": 121.518785
+          },
+          {
+            "station_name": "石牌",
+            "latitude": 25.114455,
+            "longitude": 121.515572
+          },
+          {
+            "station_name": "唭哩岸",
+            "latitude": 25.120852,
+            "longitude": 121.506234
+          },
+          {
+            "station_name": "奇岩",
+            "latitude": 25.12547,
+            "longitude": 121.50114
+          },
+          {
+            "station_name": "北投",
+            "latitude": 25.131819,
+            "longitude": 121.498648
+          },
+          {
+            "station_name": "復興崗",
+            "latitude": 25.137474,
+            "longitude": 121.485457
+          },
+          {
+            "station_name": "忠義",
+            "latitude": 25.131041,
+            "longitude": 121.473293
+          },
+          {
+            "station_name": "關渡",
+            "latitude": 25.12563,
+            "longitude": 121.4671
+          },
+          {
+            "station_name": "竹圍",
+            "latitude": 25.1369,
+            "longitude": 121.45955
+          },
+          {
+            "station_name": "紅樹林",
+            "latitude": 25.15399,
+            "longitude": 121.4588
+          },
+          {
+            "station_name": "淡水",
+            "latitude": 25.167745,
+            "longitude": 121.445805
+          }
+        ]
+      },
+      {
+        "line_name": "綠線",
+        "stations": [
+          {
+            "station_name": "新店",
+            "latitude": 24.958181,
+            "longitude": 121.5377
+          },
+          {
+            "station_name": "新店區公所",
+            "latitude": 24.96744,
+            "longitude": 121.5413
+          },
+          {
+            "station_name": "七張",
+            "latitude": 24.975036,
+            "longitude": 121.543129
+          },
+          {
+            "station_name": "大坪林",
+            "latitude": 24.98272,
+            "longitude": 121.54134
+          },
+          {
+            "station_name": "景美",
+            "latitude": 24.992824,
+            "longitude": 121.540697
+          },
+          {
+            "station_name": "萬隆",
+            "latitude": 25.001978,
+            "longitude": 121.539008
+          },
+          {
+            "station_name": "公館",
+            "latitude": 25.014781,
+            "longitude": 121.534358
+          },
+          {
+            "station_name": "台電大樓",
+            "latitude": 25.020733,
+            "longitude": 121.528143
+          },
+          {
+            "station_name": "古亭",
+            "latitude": 25.026373,
+            "longitude": 121.522868
+          },
+          {
+            "station_name": "中正紀念堂",
+            "latitude": 25.032767,
+            "longitude": 121.518273
+          },
+          {
+            "station_name": "小南門",
+            "latitude": 25.035619,
+            "longitude": 121.510798
+          },
+          {
+            "station_name": "西門",
+            "latitude": 25.042274,
+            "longitude": 121.508511
+          },
+          {
+            "station_name": "北門",
+            "latitude": 25.049554,
+            "longitude": 121.510184
+          },
+          {
+            "station_name": "中山",
+            "latitude": 25.052778,
+            "longitude": 121.520278
+          },
+          {
+            "station_name": "松江南京",
+            "latitude": 25.052693,
+            "longitude": 121.53285
+          },
+          {
+            "station_name": "南京復興",
+            "latitude": 25.052044,
+            "longitude": 121.544303
+          },
+          {
+            "station_name": "台北小巨蛋",
+            "latitude": 25.05152,
+            "longitude": 121.552549
+          },
+          {
+            "station_name": "南京三民",
+            "latitude": 25.051588,
+            "longitude": 121.56471
+          },
+          {
+            "station_name": "松山",
+            "latitude": 25.050062,
+            "longitude": 121.577718
+          }
+
+        ]
+      },
+      {
+        "line_name": "藍線",
+        "stations": [
+          {
+            "station_name": "頂埔",
+            "latitude": 24.959351,
+            "longitude": 121.418744
+          },
+          {
+            "station_name": "永寧",
+            "latitude": 24.96682,
+            "longitude": 121.43613
+          },
+          {
+            "station_name": "土城",
+            "latitude": 24.97313,
+            "longitude": 121.44432
+          },
+          {
+            "station_name": "海山",
+            "latitude": 24.985348,
+            "longitude": 121.448787
+          },
+          {
+            "station_name": "亞東醫院",
+            "latitude": 24.99828,
+            "longitude": 121.452465
+          },
+          {
+            "station_name": "府中",
+            "latitude": 25.008465,
+            "longitude": 121.459276
+          },
+          {
+            "station_name": "板橋",
+            "latitude": 25.014098,
+            "longitude": 121.462671
+          },
+          {
+            "station_name": "新埔",
+            "latitude": 25.023736,
+            "longitude": 121.468363
+          },
+          {
+            "station_name": "江子翠",
+            "latitude": 25.030265,
+            "longitude": 121.47257
+          },
+          {
+            "station_name": "龍山寺",
+            "latitude": 25.03528,
+            "longitude": 121.500325
+          },
+          {
+            "station_name": "西門",
+            "latitude": 25.042274,
+            "longitude": 121.508511
+          },
+          {
+            "station_name": "台北車站",
+            "latitude": 25.04631,
+            "longitude": 121.517415
+          },
+          {
+            "station_name": "善導寺",
+            "latitude": 0,
+            "longitude": 0
+          },
+          {
+            "station_name": "忠孝新生",
+            "latitude": 0,
+            "longitude": 0
+          },
+          {
+            "station_name": "忠孝復興",
+            "latitude": 0,
+            "longitude": 0
+          },
+          {
+            "station_name": "忠孝敦化",
+            "latitude": 0,
+            "longitude": 0
+          },
+          {
+            "station_name": "國父紀念館",
+            "latitude": 0,
+            "longitude": 0
+          },
+          {
+            "station_name": "市政府",
+            "latitude": 0,
+            "longitude": 0
+          },
+          {
+            "station_name": "永春",
+            "latitude": 0,
+            "longitude": 0
+          },
+          {
+            "station_name": "後山埤",
+            "latitude": 0,
+            "longitude": 0
+          },
+          {
+            "station_name": "昆陽",
+            "latitude": 0,
+            "longitude": 0
+          },
+          {
+            "station_name": "南港",
+            "latitude": 0,
+            "longitude": 0
+          },
+          {
+            "station_name": "南港展覽館",
+            "latitude": 0,
+            "longitude": 0
+          }
+        ]
+      }
+    ]
+  }
+  
