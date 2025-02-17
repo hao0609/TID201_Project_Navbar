@@ -4,8 +4,17 @@
 
     import Navbar_V1 from '../components/Navbar_V1.vue';
     import { movejs } from '../js/view/MissionGeralView/move';          // 引入 move.js
-    const { mover, moverStyle} = movejs();      // 使用 move.js 的 move()
+    const { mover, moverStyle} = movejs();                              // 使用 move.js 的 move()
 
+    import alert_user_location from '@/alert/alert_user_location.vue';  // 引入 alert_user_location 彈窗
+    const alert_web_M_userlocation = ref(null);
+
+    import alert_location_inaccurate from '@/alert/alert_location_inaccurate.vue';  // 引入 alert_location_inaccurate 彈窗
+    const alert_web_M_location_inaccurate = ref(null);
+
+    
+
+    import { setAlertInstance_location_inaccurate, setAlertInstance_userlocation,gelocation } from '../js/view/MissionGeralView/geolocation';          // 引入 geolocation.js
 
     let game_menu_btns_show = ref(false);   // 遊戲選單按鈕是否隱藏
     const line_select_btns = ref(null);
@@ -87,6 +96,18 @@
         }
       });
       document.addEventListener("dblclick", (event) => {event.preventDefault()});
+
+
+      if (alert_web_M_userlocation.value) {
+        setAlertInstance_userlocation(alert_web_M_userlocation.value); // 傳遞 alert_web_M_userlocation 組件給 geolocation.js
+      }
+
+      if (alert_web_M_location_inaccurate.value) {
+        setAlertInstance_location_inaccurate(alert_web_M_location_inaccurate.value); // 傳遞 alert_web_M_location_inaccurate 組件給 geolocation.js
+      }
+
+      gelocation() // 呼叫 geolocation.js 來取得用戶定位
+      
     });
 
     onUnmounted(() => {
@@ -291,6 +312,14 @@
             </button>
         </div>
     </div>
+
+    <!-- 提醒用戶開啟裝置定位彈窗 -->
+    <alert_user_location ref="alert_web_M_userlocation"/> 
+
+    <!-- 提醒用戶裝置定位不準確彈窗 -->
+    <alert_location_inaccurate ref="alert_web_M_location_inaccurate"/> 
+
+
       
 </template>
 

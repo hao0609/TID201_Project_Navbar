@@ -1,6 +1,5 @@
 import {  computed , ref , onMounted } from 'vue';
 
-
 const baseW = 1440;                // 基準寬度 (來自每個 SVG 檔的寬高)
 const baseH = 1024;                // 基準高度
 

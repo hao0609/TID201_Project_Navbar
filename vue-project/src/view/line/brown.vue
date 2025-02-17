@@ -4,7 +4,7 @@
     import building_tree from '../../assets/images/MessionGeneral/building_tree.png'
     import road from '../../assets/images/MessionGeneral/road.png';
     import bridge from '../../assets/images/MessionGeneral/bridge.png';
-    import station from '../../assets/images/MessionGeneral/station_red.vue';
+    import station_brown from '../../assets/images/MessionGeneral/station_brown.vue';
     import logo from '../../assets/images/MessionGeneral/logo.vue';
     import pin from '../../assets/images/MessionGeneral/pin.vue';
     import { pinjs } from '../../js/view/MissionGeralView/pin.js'             // 引入 pin.js
@@ -30,7 +30,7 @@
             <img :src=bridge class="bg_image" >
         </div>
         <div class="item">
-            <!-- <station class="station"/> -->
+            <station_brown class="station"/>
         </div>
         <div class="item">
             <img :src=building_tree class="bg_image" >
