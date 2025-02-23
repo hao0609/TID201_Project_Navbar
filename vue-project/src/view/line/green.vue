@@ -40,8 +40,7 @@
         </div>
     </div>
     <div class="hitarea">
-        <!-- <button ref="pin_obj" class="pin" :style="pinStyle" @click="UserLocationShowAlert" @touchstart="UserLocationShowAlert" ><pin/></button> -->
-        <!-- <pin/> -->
+        <button ref="pin_obj" class="pin" :style="pinStyle" @click="UserLocationShowAlert" @touchstart="UserLocationShowAlert" ><pin/></button>
     </div>
     <alert_user_location ref="alert_web_M_userlocation"/> 
 </template>
